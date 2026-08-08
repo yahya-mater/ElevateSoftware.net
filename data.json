@@ -1,0 +1,152 @@
+{
+  "capabilities": [
+    "DESKTOP APPS",
+    "MOBILE APPS",
+    "WEB APPLICATIONS",
+    "MANAGEMENT SYSTEMS",
+    "DATA & DOCUMENT AUTOMATION",
+    "SCHOOL & EDUCATION SOFTWARE",
+    "BROWSER EXTENSIONS",
+    "MAINTENANCE & SUPPORT"
+  ],
+  "systems": [
+    {
+      "name": "Business Management System",
+      "tagline": "CRM + Inventory",
+      "desc": "An all-in-one system combining customer relationship management with inventory tracking — built as a flexible base we customize per client.",
+      "status": "in-development",
+      "tech": ["React"],
+      "industries": ["General business", "Retail", "Wholesale"]
+    },
+    {
+      "name": "Restaurant Management System",
+      "tagline": "Orders + inventory + staff",
+      "desc": "Next in our systems line — order tracking, inventory, and staff scheduling built for restaurants and food service businesses.",
+      "status": "planned",
+      "tech": ["React"],
+      "industries": ["Restaurants", "Food service"]
+    }
+  ],
+  "projects": [
+    {
+      "tag": "Management System",
+      "title": "School Finance Manager",
+      "desc": "Finance management system for school headmasters — desktop app now, with mobile and web versions in development.",
+      "image": "assets/projects/school-finance-manager.jpg",
+      "highlights": [
+        "Built desktop-first for headmasters' daily use",
+        "Mobile and web companion versions currently in development",
+        "Designed to expand across a school's finance workflow, not just one task"
+      ]
+    },
+    {
+      "tag": "Desktop App",
+      "title": "Educational Data Exporter",
+      "desc": "Desktop tool that pulls data from an educational platform and exports it directly into ready-to-use Excel spreadsheets.",
+      "image": "assets/projects/educational-data-exporter.jpg",
+      "highlights": [
+        "Pulls structured data straight from the source site — no manual copy-paste",
+        "Outputs directly to formatted .xlsx files",
+        "Removes hours of manual data entry per use"
+      ]
+    },
+    {
+      "tag": "Custom Build",
+      "title": "JSON-to-Excel Report Generator",
+      "desc": "Desktop tool that takes JSON data files and populates them into existing Excel report templates automatically.",
+      "image": "assets/projects/json-excel-generator.jpg",
+      "highlights": [
+        "Converts raw JSON into ready-to-send Excel reports in seconds",
+        "Works against existing templates, so output matches house formatting",
+        "Removes manual re-entry of exported data"
+      ]
+    },
+    {
+      "tag": "Desktop App",
+      "title": "Lecture Timetable Builder",
+      "desc": "Desktop app for building and editing lecture timetables for schools, with a mobile version planned.",
+      "image": "assets/projects/lecture-timetable-builder.jpg",
+      "highlights": [
+        "Built for non-technical school staff to use directly",
+        "Handles the scheduling constraints specific to lecture timetabling",
+        "Mobile version planned"
+      ]
+    },
+    {
+      "tag": "Browser Extension",
+      "title": "Web-to-PDF Research Tool",
+      "desc": "Browser extension built for journalists to extract data from web pages into clean, reliable PDFs — solving inconsistent browser print output.",
+      "image": "assets/projects/web-to-pdf-research-tool.jpg",
+      "highlights": [
+        "Extracts page data directly into a clean PDF layout",
+        "Solves the inconsistency of standard browser print-to-PDF",
+        "Built specifically around a journalist's research workflow"
+      ]
+    },
+    {
+      "tag": "Mobile App",
+      "title": "Parental Control App",
+      "desc": "Mobile app for scheduling device usage windows and locking access with a PIN.",
+      "image": "assets/projects/parental-control-app.jpg",
+      "highlights": [
+        "Scheduled device usage windows",
+        "PIN-based lock for restricted periods"
+      ]
+    },
+    {
+      "tag": "Web App",
+      "title": "University Attendance System",
+      "desc": "Web-based attendance tracking system built with ASP.NET as a university project.",
+      "image": "assets/projects/university-attendance-system.jpg",
+      "highlights": [
+        "Built with ASP.NET",
+        "Digitizes attendance tracking for a university course"
+      ]
+    }
+  ],
+  "team": [
+    {
+      "initials": "AB",
+      "name": "Member One",
+      "role": "Full-stack / Web",
+      "image": "assets/team/member-one.jpg",
+      "bio": "Builds most of our web apps end to end, from database to interface. Previously worked on internal tools for a logistics company.",
+      "links": {
+        "github": "https://github.com/",
+        "linkedin": "https://linkedin.com/"
+      }
+    },
+    {
+      "initials": "CD",
+      "name": "Member Two",
+      "role": "Mobile / iOS & Android",
+      "image": "assets/team/member-two.jpg",
+      "bio": "Focuses on mobile apps, especially offline-first tools for field work. Has shipped apps on both the App Store and Play Store.",
+      "links": {
+        "github": "https://github.com/",
+        "linkedin": "https://linkedin.com/"
+      }
+    },
+    {
+      "initials": "EF",
+      "name": "Member Three",
+      "role": "Desktop / Systems",
+      "image": "assets/team/member-three.jpg",
+      "bio": "Handles desktop applications and the backend systems behind our management platforms.",
+      "links": {
+        "github": "https://github.com/"
+      }
+    },
+    {
+      "initials": "GH",
+      "name": "Member Four",
+      "role": "Design / UX",
+      "image": "assets/team/member-four.jpg",
+      "bio": "Designs the interfaces across everything we build, and keeps the team's output visually consistent.",
+      "links": {
+        "linkedin": "https://linkedin.com/",
+        "website": "https://example.com/"
+      }
+    }
+  ]
+}

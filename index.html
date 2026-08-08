@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elevate Software — Software, Built to Spec</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="logo"><span class="mark"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 86 H50 V70 H36 V54 H50 V38 H36 V22 H80 V38 H50" stroke="#3B6FE0" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>ELEVATE SOFTWARE</div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#systems">Systems</a>
+      <a href="#process">Process</a>
+      <a href="#work">Work</a>
+      <a href="#team">Team</a>
+    </div>
+    <a href="#contact" class="nav-cta">START A PROJECT →</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">☰</button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services">Services</a>
+    <a href="#systems">Systems</a>
+    <a href="#process">Process</a>
+    <a href="#work">Work</a>
+    <a href="#team">Team</a>
+    <a href="#contact" class="btn btn-primary">Start a project →</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Independent software studio</div>
+      <h1>We build the software <span>your business</span> actually runs on.</h1>
+      <p class="lead">Elevate Software is a small crew of developers building desktop &amp; mobile apps, websites, and management systems — designed and built to your spec, not off a template. We've built up a particular knack for school software and turning messy or scraped data into clean, usable documents.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Get a quote</a>
+        <a href="#work" class="btn btn-ghost">See our work</a>
+      </div>
+    </div>
+    <div class="schematic">
+      <svg viewBox="0 0 420 380" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram connecting a phone, browser window, and database, representing the studio's range of builds">
+        <!-- browser window -->
+        <rect x="30" y="30" width="160" height="110" rx="4" stroke="#3B6FE0" stroke-width="1.5"/>
+        <rect x="30" y="30" width="160" height="22" rx="4" fill="#16233A" stroke="#3B6FE0" stroke-width="1.5"/>
+        <circle cx="42" cy="41" r="3" fill="#35C6F0"/>
+        <circle cx="52" cy="41" r="3" fill="#8FA0B8"/>
+        <circle cx="62" cy="41" r="3" fill="#8FA0B8"/>
+        <line x1="45" y1="72" x2="150" y2="72" stroke="#24374F" stroke-width="2"/>
+        <line x1="45" y1="88" x2="130" y2="88" stroke="#24374F" stroke-width="2"/>
+        <line x1="45" y1="104" x2="160" y2="104" stroke="#24374F" stroke-width="2"/>
+        <text x="110" y="160" text-anchor="middle" fill="#8FA0B8" font-family="JetBrains Mono, monospace" font-size="10">WEB</text>
+
+        <!-- phone -->
+        <rect x="250" y="60" width="90" height="160" rx="10" stroke="#35C6F0" stroke-width="1.5"/>
+        <rect x="262" y="78" width="66" height="110" rx="2" fill="#16233A" stroke="#24374F"/>
+        <line x1="270" y1="94" x2="320" y2="94" stroke="#24374F" stroke-width="2"/>
+        <line x1="270" y1="108" x2="310" y2="108" stroke="#24374F" stroke-width="2"/>
+        <rect x="270" y="150" width="50" height="24" rx="3" fill="#3B6FE0" opacity="0.9"/>
+        <text x="295" y="240" text-anchor="middle" fill="#8FA0B8" font-family="JetBrains Mono, monospace" font-size="10">MOBILE</text>
+
+        <!-- database -->
+        <g>
+          <ellipse cx="110" cy="270" rx="55" ry="16" stroke="#3B6FE0" stroke-width="1.5"/>
+          <path d="M55 270 V310 A55 16 0 0 0 165 310 V270" stroke="#3B6FE0" stroke-width="1.5" fill="none"/>
+          <path d="M55 290 A55 16 0 0 0 165 290" stroke="#24374F" stroke-width="1.2"/>
+          <text x="110" y="345" text-anchor="middle" fill="#8FA0B8" font-family="JetBrains Mono, monospace" font-size="10">SYSTEMS</text>
+        </g>
+
+        <!-- connecting lines -->
+        <path d="M190 85 H250" stroke="#8FA0B8" stroke-width="1.2" class="stitch"/>
+        <path d="M110 140 V254" stroke="#8FA0B8" stroke-width="1.2" class="stitch"/>
+        <path d="M262 150 Q190 190 165 262" stroke="#8FA0B8" stroke-width="1.2" class="stitch" fill="none"/>
+
+        <!-- callout marks -->
+        <circle cx="190" cy="85" r="3" fill="#3B6FE0"/>
+        <circle cx="110" cy="254" r="3" fill="#3B6FE0"/>
+        <circle cx="262" cy="150" r="3" fill="#3B6FE0"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap">
+    <div class="strip-track" id="stripTrack">
+      <!-- duplicated via JS for seamless loop -->
+    </div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">What we build</div>
+      <h2>Five disciplines, one team.</h2>
+      <p>We don't hand you off between departments. The same crew scopes, builds, and ships your project end to end.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-code mono">SVC / DESKTOP</span>
+        <h3>Desktop Applications</h3>
+        <p>Native and cross-platform desktop software for Windows, macOS, and Linux — from internal tools to full commercial products.</p>
+        <div class="service-tags"><span>Windows</span><span>macOS</span><span>Linux</span></div>
+      </div>
+      <div class="service-card">
+        <span class="service-code mono">SVC / MOBILE</span>
+        <h3>Mobile Applications</h3>
+        <p>iOS and Android apps built for real usage — from first prototype through App Store and Play Store release.</p>
+        <div class="service-tags"><span>iOS</span><span>Android</span><span>Cross-platform</span></div>
+      </div>
+      <div class="service-card">
+        <span class="service-code mono">SVC / WEB</span>
+        <h3>Websites &amp; Web Apps</h3>
+        <p>Marketing sites, dashboards, and full web applications — fast, responsive, and built to be maintained, not just shipped.</p>
+        <div class="service-tags"><span>Frontend</span><span>Backend</span><span>APIs</span></div>
+      </div>
+      <div class="service-card">
+        <span class="service-code mono">SVC / SYSTEMS</span>
+        <h3>Management Systems</h3>
+        <p>Inventory, booking, HR, and custom operations software that replaces spreadsheets and manual processes with something built for your workflow.</p>
+        <div class="service-tags"><span>Dashboards</span><span>Automation</span><span>Reporting</span></div>
+      </div>
+      <div class="service-card">
+        <span class="service-code mono">SVC / DATA</span>
+        <h3>Data &amp; Document Automation</h3>
+        <p>Turning scraped websites, JSON exports, and messy spreadsheets into clean Excel reports and PDFs — a problem we keep getting asked to solve.</p>
+        <div class="service-tags"><span>Web scraping</span><span>Excel automation</span><span>PDF generation</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="systems">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Product line</div>
+      <h2>Systems we're building.</h2>
+      <p>Alongside custom client work, we're building a line of ready-to-customize business systems — live demos you can see and adapt instead of starting from a blank page.</p>
+    </div>
+    <div class="systems-grid" id="systemsGrid"></div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">How we work</div>
+      <h2>From brief to build, in four stages.</h2>
+      <p>Every project — freelance or direct — follows the same process, so you always know what's next.</p>
+    </div>
+    <div class="process-line">
+      <div class="process-step">
+        <div class="dot mono">1</div>
+        <h3>Scope</h3>
+        <p>We map your requirements, constraints, and timeline before writing a line of code.</p>
+      </div>
+      <div class="process-step">
+        <div class="dot mono">2</div>
+        <h3>Design</h3>
+        <p>Architecture and interface decisions get made deliberately, and shown to you before build.</p>
+      </div>
+      <div class="process-step">
+        <div class="dot mono">3</div>
+        <h3>Build</h3>
+        <p>Development happens in short cycles, with working versions in your hands early and often.</p>
+      </div>
+      <div class="process-step">
+        <div class="dot mono">4</div>
+        <h3>Ship &amp; support</h3>
+        <p>We deploy, hand over what you need to run it, and stay reachable after launch.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Selected work</div>
+      <h2>Recent builds.</h2>
+      <p>A few of the projects we've shipped for clients and on freelance platforms.</p>
+    </div>
+    <div class="work-grid" id="workGrid"></div>
+  </div>
+</section>
+
+<section id="team">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">The crew</div>
+      <h2>Who's building this.</h2>
+      <p>A small team, each covering a different part of the stack.</p>
+    </div>
+    <div class="team-grid" id="teamGrid"></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>Have a project in mind?</h2>
+      <p>Tell us what you're building. We'll reply with a scoped estimate — usually within a day or two.</p>
+      <form class="cta-form" id="contactForm">
+        <input type="email" placeholder="you@company.com" required aria-label="Your email">
+        <button type="submit" class="btn btn-primary">Send</button>
+      </form>
+      <p class="cta-note" id="formNote">We'll never share your email. No spam, ever.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="logo"><span class="mark"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 86 H50 V70 H36 V54 H50 V38 H36 V22 H80 V38 H50" stroke="#3B6FE0" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>ELEVATE SOFTWARE</div>
+      <div class="footer-links">
+        <a href="#services">Services</a>
+        <a href="#systems">Systems</a>
+        <a href="#process">Process</a>
+        <a href="#work">Work</a>
+        <a href="#team">Team</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Elevate Software. All rights reserved.</span>
+      <span>Built in-house, obviously.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="modalOverlay" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
