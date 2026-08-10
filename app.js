@@ -159,6 +159,20 @@
     document.addEventListener('keydown', galleryKeyHandler);
   }
 
+  // Optional "built for" credit. Only renders when a project explicitly has
+  // a `client` object — never invent or assume one. Get the client's
+  // go-ahead before adding them here, and lean conservative for individuals
+  // (first name / "a private client" rather than a full name or a link to
+  // personal social profiles) unless they've specifically asked to be linked.
+  function projectClientHTML(p){
+    if (!p.client || !p.client.name) return '';
+    const name = escapeHTML(p.client.name);
+    const label = p.client.url
+      ? `<a href="${escapeHTML(p.client.url)}" target="_blank" rel="noopener noreferrer">${name}</a>`
+      : name;
+    return `<p class="modal-client">Built for ${label}</p>`;
+  }
+
   function openProjectModal(p){
     const highlights = Array.isArray(p.highlights) && p.highlights.length
       ? `<ul class="modal-highlights">${p.highlights.map(h => `<li>${escapeHTML(h)}</li>`).join('')}</ul>`
@@ -169,6 +183,7 @@
       ${projectGalleryHTML(p)}
       <span class="modal-eyebrow">${escapeHTML(p.tag)}</span>
       <h2 id="modalTitle">${escapeHTML(p.title)}</h2>
+      ${projectClientHTML(p)}
       <p>${escapeHTML(p.desc)}</p>
       ${highlights}
     `);

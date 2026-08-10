@@ -25,51 +25,124 @@
       "status": "planned",
       "tech": ["React"],
       "industries": ["Restaurants", "Food service"]
+    },
+    {
+      "name": "License Server",
+      "tagline": "Licensing infrastructure for in-house apps",
+      "desc": "An ASP.NET licensing service with a companion C# client library for WinForms apps. Supports Admin, Manager, and Staff roles, and can onboard any new app by registering it and issuing an app ID used to verify licenses.",
+      "status": "live",
+      "tech": ["ASP.NET", "C#"]
+    },
+    {
+      "name": "Licensed Browser Wrapper Template",
+      "tagline": "WinForms desktop app starter kit",
+      "desc": "An in-house C# WinForms template for building browser-wrapper desktop apps with licensing already integrated — the base we build our desktop products on.",
+      "status": "live",
+      "tech": ["C#", "WinForms"]
+    },
+    {
+      "name": "Static Site + Content Manager Template",
+      "tagline": "GitHub Pages site with a JSON-driven updater app",
+      "desc": "A reusable template pairing a static site — hosted on GitHub Pages, content driven entirely by a JSON file — with a companion desktop app that updates that JSON. This same system powers this site.",
+      "status": "live"
     }
   ],
   "projects": [
     {
-      "tag": "Management System",
-      "title": "School Finance Manager",
-      "desc": "Finance management system for school headmasters — desktop app now, with mobile and web versions in development.",
-      "image": "assets/projects/school-finance-manager.jpg",
+      "tag": "Desktop App",
+      "title": "Ajyal Assistant",
+      "desc": "Desktop app for Jordanian public schools and the stationery stores that work with them. Scrapes school data from the Ministry of Education's EMIS portal and uses it to fill Excel templates, generating attendance records, marks records, and certificates.",
+      "image": "assets/projects/Ajyal Assistant/thumbnail.png",
+      "images": [
+        "assets/projects/Ajyal Assistant/thumbnail.png",
+        "assets/projects/Ajyal Assistant/1.png",
+        "assets/projects/Ajyal Assistant/2.png",
+        "assets/projects/Ajyal Assistant/3.png",
+        "assets/projects/Ajyal Assistant/4.png",
+        "assets/projects/Ajyal Assistant/5.png",
+        "assets/projects/Ajyal Assistant/6.png",
+        "assets/projects/Ajyal Assistant/7.png"
+      ],
       "highlights": [
-        "Built desktop-first for headmasters' daily use",
-        "Mobile and web companion versions currently in development",
-        "Designed to expand across a school's finance workflow, not just one task"
+        "Pulls data directly from Jordan's MOE EMIS portal (ajyal.moe.gov.jo/emis)",
+        "Generates attendance records, marks records, and certificates by filling Excel templates",
+        "Used by both public schools and school-supply stores that serve them",
+        "Licensed app; no website or mobile version planned"
       ]
     },
     {
-      "tag": "Desktop App",
-      "title": "Educational Data Exporter",
-      "desc": "Desktop tool that pulls data from an educational platform and exports it directly into ready-to-use Excel spreadsheets.",
-      "image": "assets/projects/educational-data-exporter.jpg",
+      "tag": "Management System",
+      "title": "Mizan",
+      "desc": "Finance management system for Jordanian public school headmasters, also used by third parties who provide financial services to headmasters. Desktop app now, with website and/or mobile versions planned.",
+      "image": "assets/projects/Mizan/thumbnail.png",
+      "images": [
+        "assets/projects/Mizan/thumbnail.png",
+        "assets/projects/Mizan/1.png",
+        "assets/projects/Mizan/2.png",
+        "assets/projects/Mizan/3.png",
+        "assets/projects/Mizan/4.png",
+        "assets/projects/Mizan/5.png",
+        "assets/projects/Mizan/6.png",
+        "assets/projects/Mizan/7.png",
+        "assets/projects/Mizan/8.png",
+        "assets/projects/Mizan/9.png",
+        "assets/projects/Mizan/10.png",
+        "assets/projects/Mizan/11.png",
+        "assets/projects/Mizan/12.png",
+        "assets/projects/Mizan/13.png",
+        "assets/projects/Mizan/14.png",
+        "assets/projects/Mizan/15.png"
+      ],
       "highlights": [
-        "Pulls structured data straight from the source site — no manual copy-paste",
-        "Outputs directly to formatted .xlsx files",
-        "Removes hours of manual data entry per use"
+        "Built desktop-first for headmasters' daily use",
+        "Also used by external providers offering financial services to headmasters",
+        "Website and/or mobile versions planned, pending licensing arrangements",
+        "Licensed app"
       ]
     },
     {
       "tag": "Custom Build",
-      "title": "JSON-to-Excel Report Generator",
-      "desc": "Desktop tool that takes JSON data files and populates them into existing Excel report templates automatically.",
-      "image": "assets/projects/json-excel-generator.jpg",
+      "title": "Qalib",
+      "desc": "Free desktop tool that bulk-generates Excel files from a JSON array and a single Excel template, replacing {{tag}} placeholders with each record's data — including nested objects and lists of objects.",
+      "image": "assets/projects/Qalib/thumbnail.png",
+      "images": [
+        "assets/projects/Qalib/thumbnail.png",
+        "assets/projects/Qalib/1.png"
+      ],
       "highlights": [
-        "Converts raw JSON into ready-to-send Excel reports in seconds",
-        "Works against existing templates, so output matches house formatting",
-        "Removes manual re-entry of exported data"
+        "Supports nested objects ({{parent.child}}) and lists, including lists of objects ({{list[0].field}})",
+        "Preserves template formatting, merged cells, and formulas across every generated sheet",
+        "Runs 100% locally — no files are uploaded to any server",
+        "Free to use, with no license required"
       ]
     },
     {
       "tag": "Desktop App",
-      "title": "Lecture Timetable Builder",
-      "desc": "Desktop app for building and editing lecture timetables for schools, with a mobile version planned.",
-      "image": "assets/projects/lecture-timetable-builder.jpg",
+      "title": "Jadwalak",
+      "desc": "Desktop app that helps Jordanian public schools build and edit lecture timetables for their teaching staff.",
+      "image": "assets/projects/Jadwalak/thumbnail.png",
+      "images": [
+        "assets/projects/Jadwalak/thumbnail.png",
+        "assets/projects/Jadwalak/1.png",
+        "assets/projects/Jadwalak/2.png",
+        "assets/projects/Jadwalak/3.png",
+        "assets/projects/Jadwalak/4.png",
+        "assets/projects/Jadwalak/5.png",
+        "assets/projects/Jadwalak/6.png",
+        "assets/projects/Jadwalak/7.png",
+        "assets/projects/Jadwalak/8.png",
+        "assets/projects/Jadwalak/9.png",
+        "assets/projects/Jadwalak/10.png",
+        "assets/projects/Jadwalak/11.png",
+        "assets/projects/Jadwalak/12.png",
+        "assets/projects/Jadwalak/13.png",
+        "assets/projects/Jadwalak/14.png"
+      ],
       "highlights": [
         "Built for non-technical school staff to use directly",
         "Handles the scheduling constraints specific to lecture timetabling",
-        "Mobile version planned"
+        "Website and/or mobile versions planned, pending licensing arrangements and further work on the scheduling algorithm",
+        "Licensed app"
       ]
     },
     {
