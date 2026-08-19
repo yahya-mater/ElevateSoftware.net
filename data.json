@@ -201,24 +201,25 @@
       }
     },
     {
-      "initials": "EF",
-      "name": "Member Three",
+      "initials": "YM",
+      "name": "Yahia Matar",
       "role": "Desktop / Systems",
-      "image": "assets/team/member-three.jpg",
+      "image": "assets/team/Yahia Matar/profile.jpeg",
       "bio": "Handles desktop applications and the backend systems behind our management platforms.",
       "links": {
-        "github": "https://github.com/"
+        "github": "https://github.com/yahya-mater",
+        "website": "https://portfolio.futureisnow.site/"
       }
     },
     {
-      "initials": "GH",
-      "name": "Member Four",
+      "initials": "AS",
+      "name": "Ahmad Samara",
       "role": "Design / UX",
-      "image": "assets/team/member-four.jpg",
+      "image": "assets/team/Ahmad Samara/profile.jpg",
       "bio": "Designs the interfaces across everything we build, and keeps the team's output visually consistent.",
       "links": {
-        "linkedin": "https://linkedin.com/",
-        "website": "https://example.com/"
+        "linkedin": "https://www.linkedin.com/in/%D8%A7%D8%AD%D9%85%D8%AF-%D8%B3%D9%85%D8%A7%D8%B1%D8%A9-a4919a366/",
+        "github": "https://github.com/advr3"
       }
     }
   ]
