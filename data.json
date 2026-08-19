@@ -179,10 +179,10 @@
   ],
   "team": [
     {
-      "initials": "AB",
-      "name": "Member One",
+      "initials": "AJ",
+      "name": "Ahmad Juma",
       "role": "Full-stack / Web",
-      "image": "assets/team/member-one.jpg",
+      "image": "assets/team/Ahmad Juma/profile.jpeg",
       "bio": "Builds most of our web apps end to end, from database to interface. Previously worked on internal tools for a logistics company.",
       "links": {
         "github": "https://github.com/",
@@ -190,10 +190,10 @@
       }
     },
     {
-      "initials": "CD",
-      "name": "Member Two",
+      "initials": "OJ",
+      "name": "Omar Jaradeen",
       "role": "Mobile / iOS & Android",
-      "image": "assets/team/member-two.jpg",
+      "image": "assets/team/Omar Jaradeen/profile.jpeg",
       "bio": "Focuses on mobile apps, especially offline-first tools for field work. Has shipped apps on both the App Store and Play Store.",
       "links": {
         "github": "https://github.com/",
