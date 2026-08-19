@@ -185,19 +185,17 @@
       "image": "assets/team/Ahmad Juma/profile.jpeg",
       "bio": "Builds most of our web apps end to end, from database to interface. Previously worked on internal tools for a logistics company.",
       "links": {
-        "github": "https://github.com/",
-        "linkedin": "https://linkedin.com/"
+        "github": "https://github.com/AHMADJUAM"
       }
     },
     {
       "initials": "OJ",
-      "name": "Omar Jaradeen",
+      "name": "Omar Jradeen",
       "role": "Mobile / iOS & Android",
-      "image": "assets/team/Omar Jaradeen/profile.jpeg",
+      "image": "assets/team/Omar Jradeen/profile.jpeg",
       "bio": "Focuses on mobile apps, especially offline-first tools for field work. Has shipped apps on both the App Store and Play Store.",
       "links": {
-        "github": "https://github.com/",
-        "linkedin": "https://linkedin.com/"
+        "github": "https://github.com/jradeen"
       }
     },
     {
