@@ -149,7 +149,7 @@
       "tag": "Browser Extension",
       "title": "Web-to-PDF Research Tool",
       "desc": "Browser extension built for journalists to extract data from web pages into clean, reliable PDFs — solving inconsistent browser print output.",
-      "image": "assets/projects/web-to-pdf-research-tool.jpg",
+      
       "highlights": [
         "Extracts page data directly into a clean PDF layout",
         "Solves the inconsistency of standard browser print-to-PDF",
@@ -160,7 +160,7 @@
       "tag": "Mobile App",
       "title": "Parental Control App",
       "desc": "Mobile app for scheduling device usage windows and locking access with a PIN.",
-      "image": "assets/projects/parental-control-app.jpg",
+      
       "highlights": [
         "Scheduled device usage windows",
         "PIN-based lock for restricted periods"
@@ -170,7 +170,7 @@
       "tag": "Web App",
       "title": "University Attendance System",
       "desc": "Web-based attendance tracking system built with ASP.NET as a university project.",
-      "image": "assets/projects/university-attendance-system.jpg",
+      
       "highlights": [
         "Built with ASP.NET",
         "Digitizes attendance tracking for a university course"
