@@ -30,7 +30,7 @@
   const modalBody = document.getElementById('modalBody');
   const modalClose = document.getElementById('modalClose');
   let lastFocusedEl = null;
-  let galleryKeyHandler = null;
+  let currentGallery = null; // { slides, index, title, renderSlide(i) } while a project modal's carousel is open
 
   function openModal(html){
     lastFocusedEl = document.activeElement;
@@ -45,13 +45,71 @@
     modalOverlay.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
     modalBody.innerHTML = '';
-    if (galleryKeyHandler) { document.removeEventListener('keydown', galleryKeyHandler); galleryKeyHandler = null; }
+    currentGallery = null;
+    closeLightbox();
     if (lastFocusedEl) lastFocusedEl.focus();
   }
   modalClose.addEventListener('click', closeModal);
   modalOverlay.addEventListener('click', e => { if (e.target === modalOverlay) closeModal(); });
+
+  // ---- lightbox (expanded image view, layered on top of the modal) ----
+  const lightboxOverlay = document.getElementById('lightboxOverlay');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxClose = document.getElementById('lightboxClose');
+  const lightboxPrev = document.getElementById('lightboxPrev');
+  const lightboxNext = document.getElementById('lightboxNext');
+  const lightboxCounter = document.getElementById('lightboxCounter');
+  let lightboxImages = [];
+  let lightboxIndex = 0;
+
+  function showLightbox(i){
+    lightboxIndex = (i + lightboxImages.length) % lightboxImages.length;
+    const src = lightboxImages[lightboxIndex];
+    lightboxImg.src = src;
+    lightboxImg.alt = `Image ${lightboxIndex + 1} of ${lightboxImages.length}`;
+    const multi = lightboxImages.length > 1;
+    lightboxCounter.textContent = `${lightboxIndex + 1} / ${lightboxImages.length}`;
+    lightboxPrev.style.display = multi ? 'flex' : 'none';
+    lightboxNext.style.display = multi ? 'flex' : 'none';
+    lightboxCounter.style.display = multi ? 'inline-flex' : 'none';
+  }
+  // Opens the lightbox for a set of image URLs (not video slides), starting
+  // at `startIndex` within that image-only list.
+  function openLightbox(images, startIndex){
+    lightboxImages = images;
+    showLightbox(startIndex);
+    lightboxOverlay.classList.add('open');
+    lightboxOverlay.setAttribute('aria-hidden', 'false');
+    lightboxClose.focus();
+  }
+  function closeLightbox(){
+    lightboxOverlay.classList.remove('open');
+    lightboxOverlay.setAttribute('aria-hidden', 'true');
+    lightboxImg.src = '';
+  }
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightboxPrev.addEventListener('click', () => showLightbox(lightboxIndex - 1));
+  lightboxNext.addEventListener('click', () => showLightbox(lightboxIndex + 1));
+  lightboxOverlay.addEventListener('click', e => { if (e.target === lightboxOverlay) closeLightbox(); });
+
+  // Single keydown listener handles both the lightbox and the modal/gallery
+  // beneath it, with the lightbox taking priority when it's open.
   document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && modalOverlay.classList.contains('open')) closeModal();
+    if (e.key === 'Escape') {
+      if (lightboxOverlay.classList.contains('open')) { closeLightbox(); return; }
+      if (modalOverlay.classList.contains('open')) { closeModal(); return; }
+      return;
+    }
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+      const dir = e.key === 'ArrowRight' ? 1 : -1;
+      if (lightboxOverlay.classList.contains('open')) {
+        if (lightboxImages.length > 1) showLightbox(lightboxIndex + dir);
+        return;
+      }
+      if (currentGallery && modalOverlay.classList.contains('open')) {
+        currentGallery.renderSlide(currentGallery.index + dir);
+      }
+    }
   });
 
   // ---- video helper ----
@@ -78,85 +136,115 @@
     }
   }
 
-  // Builds the video block for a project, if it has one: embed takes
-  // priority over a self-hosted file.
-  function projectVideoHTML(p){
-    if (p.videoEmbed) {
-      return `<div class="modal-media"><div class="video-embed">
-        <iframe src="${escapeHTML(toEmbedSrc(p.videoEmbed))}" title="${escapeHTML(p.title)} walkthrough"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div></div>`;
-    }
-    if (p.videoFile) {
-      return `<div class="modal-media"><div class="video-embed">
-        <video src="${escapeHTML(p.videoFile)}" controls preload="metadata"
-          ${p.image ? `poster="${escapeHTML(p.image)}"` : ''}></video>
-      </div></div>`;
-    }
-    return '';
+  // ---- unified media carousel: video (if any) is slide 0, images follow ----
+  // Same pattern as a storefront media gallery — one strip of thumbnails
+  // covering both the video and every screenshot.
+  function projectSlides(p){
+    const slides = [];
+    if (p.videoEmbed) slides.push({ type: 'video', embed: true, src: p.videoEmbed });
+    else if (p.videoFile) slides.push({ type: 'video', embed: false, src: p.videoFile, poster: p.image });
+    const images = Array.isArray(p.images) && p.images.length ? p.images : (p.image ? [p.image] : []);
+    images.forEach(src => slides.push({ type: 'image', src }));
+    return slides;
   }
 
-  // Builds the image gallery for a project. Uses `images` (an array) when
-  // present; otherwise falls back to the single `image` field so older data
-  // still works. A single image renders plain — the carousel chrome only
-  // appears once there's more than one to browse.
-  function projectGalleryHTML(p){
-    const images = Array.isArray(p.images) && p.images.length ? p.images : (p.image ? [p.image] : []);
-    if (!images.length) return '';
-    if (images.length === 1) {
-      return `<div class="modal-media"><img src="${escapeHTML(images[0])}" alt="${escapeHTML(p.title)}"
-        onerror="this.parentElement.outerHTML='<div class=\\'modal-media\\'><div class=\\'gallery-broken\\'>Image unavailable</div></div>'"></div>`;
+  function slideInnerHTML(slide, title, humanIndex, total){
+    if (slide.type === 'video') {
+      if (slide.embed) {
+        return `<div class="video-embed"><iframe src="${escapeHTML(toEmbedSrc(slide.src))}" title="${escapeHTML(title)} walkthrough"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`;
+      }
+      return `<div class="video-embed"><video src="${escapeHTML(slide.src)}" controls preload="metadata"
+        ${slide.poster ? `poster="${escapeHTML(slide.poster)}"` : ''}></video></div>`;
     }
-    const thumbs = images.map((src, i) =>
-      `<button class="gallery-thumb${i === 0 ? ' active' : ''}" data-index="${i}" aria-label="View image ${i + 1} of ${images.length}">
-        <img src="${escapeHTML(src)}" alt="" loading="lazy">
-      </button>`
-    ).join('');
+    return `<img src="${escapeHTML(slide.src)}" alt="${escapeHTML(title)} — image ${humanIndex} of ${total}" onerror="this.style.opacity='0.25'; this.style.cursor='default'; this.onclick=null;">`;
+  }
+
+  function slideThumbHTML(slide, i, active){
+    if (slide.type === 'video') {
+      return `<button class="gallery-thumb${active ? ' active' : ''}" data-index="${i}" aria-label="Play video">
+        ${slide.poster ? `<img src="${escapeHTML(slide.poster)}" alt="" loading="lazy">` : ''}
+        <span class="gallery-thumb-play">▶</span>
+      </button>`;
+    }
+    return `<button class="gallery-thumb${active ? ' active' : ''}" data-index="${i}" aria-label="View image ${i + 1}">
+      <img src="${escapeHTML(slide.src)}" alt="" loading="lazy">
+    </button>`;
+  }
+
+  // Attaches the click-to-expand handler to whichever <img> is currently the
+  // main slide (video slides have nothing to attach — their own controls
+  // already handle playback/fullscreen).
+  function wireExpandableImage(container, slides, index){
+    const img = container.querySelector('img');
+    if (!img) return;
+    img.addEventListener('click', () => {
+      const imageSlides = slides.filter(s => s.type === 'image');
+      const startIndex = imageSlides.findIndex(s => s === slides[index]);
+      openLightbox(imageSlides.map(s => s.src), Math.max(startIndex, 0));
+    });
+  }
+
+  function projectMediaHTML(p){
+    const slides = projectSlides(p);
+    if (!slides.length) return '';
+
+    if (slides.length === 1) {
+      const only = slides[0];
+      if (only.type === 'video') return `<div class="modal-media">${slideInnerHTML(only, p.title, 1, 1)}</div>`;
+      return `<div class="modal-media">${slideInnerHTML(only, p.title, 1, 1)}</div>`;
+    }
+
+    const thumbs = slides.map((s, i) => slideThumbHTML(s, i, i === 0)).join('');
     return `
       <div class="modal-media modal-gallery">
         <div class="gallery-main">
-          <img class="gallery-main-img" src="${escapeHTML(images[0])}" alt="${escapeHTML(p.title)} — image 1 of ${images.length}">
-          <button class="gallery-nav prev" aria-label="Previous image">‹</button>
-          <button class="gallery-nav next" aria-label="Next image">›</button>
-          <span class="gallery-counter">1 / ${images.length}</span>
+          <div class="gallery-slide">${slideInnerHTML(slides[0], p.title, 1, slides.length)}</div>
+          <button class="gallery-nav prev" aria-label="Previous">‹</button>
+          <button class="gallery-nav next" aria-label="Next">›</button>
+          <span class="gallery-counter">1 / ${slides.length}</span>
         </div>
         <div class="gallery-thumbs">${thumbs}</div>
       </div>`;
   }
 
-  // Wires up prev/next/thumbnail clicks and left/right arrow keys for the
-  // gallery just inserted into the modal, if there is one.
-  function initGallery(images, title){
+  // Wires up prev/next/thumbnail clicks for the carousel just inserted into
+  // the modal (if there is one), and registers it as the active gallery so
+  // the shared keydown listener above can drive it with arrow keys.
+  function initGallery(p){
+    const slides = projectSlides(p);
     const galleryEl = modalBody.querySelector('.modal-gallery');
-    if (galleryKeyHandler) { document.removeEventListener('keydown', galleryKeyHandler); galleryKeyHandler = null; }
-    if (!galleryEl) return;
+    if (!galleryEl) {
+      // Single-slide case still needs its lone image wired up for expansion.
+      if (slides.length === 1 && slides[0].type === 'image') {
+        wireExpandableImage(modalBody.querySelector('.modal-media'), slides, 0);
+      }
+      return;
+    }
 
-    let index = 0;
-    const mainImg = galleryEl.querySelector('.gallery-main-img');
+    const mainEl = galleryEl.querySelector('.gallery-main');
+    const slideEl = galleryEl.querySelector('.gallery-slide');
     const counter = galleryEl.querySelector('.gallery-counter');
     const thumbs = galleryEl.querySelectorAll('.gallery-thumb');
 
-    function show(i){
-      index = (i + images.length) % images.length;
-      mainImg.style.opacity = '0';
+    function renderSlide(i){
+      const index = (i + slides.length) % slides.length;
+      slideEl.style.opacity = '0';
       setTimeout(() => {
-        mainImg.src = images[index];
-        mainImg.alt = `${title} — image ${index + 1} of ${images.length}`;
-        mainImg.style.opacity = '1';
+        slideEl.innerHTML = slideInnerHTML(slides[index], p.title, index + 1, slides.length);
+        slideEl.style.opacity = '1';
+        wireExpandableImage(slideEl, slides, index);
       }, 150);
-      counter.textContent = `${index + 1} / ${images.length}`;
+      counter.textContent = `${index + 1} / ${slides.length}`;
       thumbs.forEach((t, ti) => t.classList.toggle('active', ti === index));
+      currentGallery.index = index;
     }
 
-    galleryEl.querySelector('.gallery-nav.prev').addEventListener('click', () => show(index - 1));
-    galleryEl.querySelector('.gallery-nav.next').addEventListener('click', () => show(index + 1));
-    thumbs.forEach((t, ti) => t.addEventListener('click', () => show(ti)));
-
-    galleryKeyHandler = e => {
-      if (e.key === 'ArrowLeft') show(index - 1);
-      if (e.key === 'ArrowRight') show(index + 1);
-    };
-    document.addEventListener('keydown', galleryKeyHandler);
+    currentGallery = { slides, index: 0, title: p.title, renderSlide };
+    wireExpandableImage(slideEl, slides, 0);
+    mainEl.querySelector('.gallery-nav.prev').addEventListener('click', () => renderSlide(currentGallery.index - 1));
+    mainEl.querySelector('.gallery-nav.next').addEventListener('click', () => renderSlide(currentGallery.index + 1));
+    thumbs.forEach((t, ti) => t.addEventListener('click', () => renderSlide(ti)));
   }
 
   // Optional "built for" credit. Only renders when a project explicitly has
@@ -177,17 +265,15 @@
     const highlights = Array.isArray(p.highlights) && p.highlights.length
       ? `<ul class="modal-highlights">${p.highlights.map(h => `<li>${escapeHTML(h)}</li>`).join('')}</ul>`
       : '';
-    const images = Array.isArray(p.images) && p.images.length ? p.images : (p.image ? [p.image] : []);
     openModal(`
-      ${projectVideoHTML(p)}
-      ${projectGalleryHTML(p)}
+      ${projectMediaHTML(p)}
       <span class="modal-eyebrow">${escapeHTML(p.tag)}</span>
       <h2 id="modalTitle">${escapeHTML(p.title)}</h2>
       ${projectClientHTML(p)}
       <p>${escapeHTML(p.desc)}</p>
       ${highlights}
     `);
-    if (images.length > 1) initGallery(images, p.title);
+    initGallery(p);
   }
 
   // ---- work grid ----
