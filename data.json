@@ -46,9 +46,12 @@
       "desc": "An all-in-one business management system combining customer relationship management with inventory tracking — built as a flexible, single-tenant base we customize per client.",
       "image": "assets/projects/Vantage/thumbnail.png",
       "images": [
+        "assets/projects/Vantage/thumbnail.png",
         "assets/projects/Vantage/1.png",
         "assets/projects/Vantage/2.png",
-        "assets/projects/Vantage/3.png"
+        "assets/projects/Vantage/3.png",
+        "assets/projects/Vantage/4.png",
+        "assets/projects/Vantage/5.png"
       ],
       "highlights": [
         "Covers customers, products/inventory, orders, and analytics in one system",
