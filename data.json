@@ -11,14 +11,6 @@
   ],
   "systems": [
     {
-      "name": "Business Management System",
-      "tagline": "CRM + Inventory",
-      "desc": "An all-in-one system combining customer relationship management with inventory tracking — built as a flexible base we customize per client.",
-      "status": "in-development",
-      "tech": ["React"],
-      "industries": ["General business", "Retail", "Wholesale"]
-    },
-    {
       "name": "Restaurant Management System",
       "tagline": "Orders + inventory + staff",
       "desc": "Next in our systems line — order tracking, inventory, and staff scheduling built for restaurants and food service businesses.",
@@ -48,6 +40,23 @@
     }
   ],
   "projects": [
+    {
+      "tag": "Management System",
+      "title": "Vantage",
+      "desc": "An all-in-one business management system combining customer relationship management with inventory tracking — built as a flexible, single-tenant base we customize per client.",
+      "image": "assets/projects/Vantage/thumbnail.png",
+      "images": [
+        "assets/projects/Vantage/1.png",
+        "assets/projects/Vantage/2.png",
+        "assets/projects/Vantage/3.png"
+      ],
+      "highlights": [
+        "Covers customers, products/inventory, orders, and analytics in one system",
+        "Dashboard with revenue, orders, customer counts, and monthly charts",
+        "Single-tenant design with role-based access (Admin, Manager, Staff)",
+        "Built as a showcase piece and a customizable base for client projects"
+      ]
+    },
     {
       "tag": "Desktop App",
       "title": "Ajyal Assistant",
