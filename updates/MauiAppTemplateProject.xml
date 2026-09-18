@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <item>
     <version>1.1</version>
-    <url>https://yahya-mater.github.io/ElevateSoftware.net/downloads/MauiAppTemplateProject.exe</url>
+    <url>https://github.com/yahya-mater/ElevateSoftware.net/releases/download/MauiAppTemplateProject_v1.1/MauiAppTemplateProject.exe</url>
     <!-- <changelog>https://yahya-mater.github.io/ElevateSoftware.net/changelogs/changelog.html</changelog> -->
     <mandatory>false</mandatory>
 </item>
