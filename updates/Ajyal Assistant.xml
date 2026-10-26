@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <item>
-    <version>1.1.4</version>
-    <url>https://github.com/yahya-mater/ElevateSoftware.net/releases/download/Ajyal_Assistant_v1.1.4/Ajyal_Assistant.exe</url>
-    <checksum algorithm="Sha256">b8c30a02ebaa60eebcdf203b6fd993551fced39c50550a5b5ff8b0dc36fc847c</checksum>
+    <version>1.1.5</version>
+    <url>https://github.com/yahya-mater/ElevateSoftware.net/releases/download/Ajyal_Assistant_v1.1.5/Ajyal_Assistant.exe</url>
+    <checksum algorithm="Sha256">a12438d514acdf48a1bea8bfb7c139f4e4ee269c4ec136d6b501b44bba848ce6</checksum>
     
-    <apkUrl>https://github.com/yahya-mater/ElevateSoftware.net/releases/download/Ajyal_Assistant_v1.1.4/net.elevatesoftware.ajyalassistant-Signed.apk</apkUrl>
-    <apkChecksum algorithm="Sha256">e33c89beb6e19ea695dd23b08a28d793fd5bc701ed419ebd2b6925a8c820ad21</apkChecksum>
+    <apkUrl>https://github.com/yahya-mater/ElevateSoftware.net/releases/download/Ajyal_Assistant_v1.1.5/net.elevatesoftware.ajyalassistant-Signed.apk</apkUrl>
+    <apkChecksum algorithm="Sha256">410cfc42f4040b876535cd89f3d25289818d6884bd6a1aa101eea60713e0d626</apkChecksum>
     
     
     <!-- <changelog>https://yahya-mater.github.io/ElevateSoftware.net/changelogs/changelog.html</changelog> -->
