@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <item>
-    <version>1.0</version>
-    <url>https://github.com/yahya-mater/ElevateSoftware.net/releases/download/Mizan_v1.0/Mizan.exe</url>
+    <version>1.1.0</version>
+    <url>https://github.com/yahya-mater/ElevateSoftware.net/releases/download/Mizan_v1.1.0/Mizan.exe</url>
+    <checksum algorithm="Sha256">f8b6bd2017da9ac6813bccc72d0b6b0b5e79a50cdc0604fc3462a198e1f34fca</checksum>
     <!-- <changelog>https://yahya-mater.github.io/ElevateSoftware.net/changelogs/changelog.html</changelog> -->
     <mandatory>false</mandatory>
 </item>
