@@ -1,3 +1,193 @@
+// ============================================================
+// LANGUAGE (English / Arabic) — shared with the get-license page
+// via the same localStorage key, so the choice carries across pages.
+// ============================================================
+const translations = {
+  en: {
+    navServices: "Services",
+    navSystems: "Systems",
+    navProcess: "Process",
+    navWork: "Work",
+    navTeam: "Team",
+    navLicense: "Get a License",
+    navContact: "Contact",
+    navCta: "START A PROJECT →",
+    navCtaMobile: "Start a project →",
+    heroEyebrow: "Independent software studio",
+    heroTitleHTML: 'We build the software <span>your business</span> actually runs on.',
+    heroLead: "Elevate Software is a small crew of developers building desktop & mobile apps, websites, and management systems — designed and built to your spec, not off a template. We've built up a particular knack for school software and turning messy or scraped data into clean, usable documents.",
+    heroCtaQuote: "Get a quote",
+    heroCtaWork: "See our work",
+    servicesEyebrow: "What we build",
+    servicesTitle: "Five disciplines, one team.",
+    servicesLead: "We don't hand you off between departments. The same crew scopes, builds, and ships your project end to end.",
+    svcDesktopTitle: "Desktop Applications",
+    svcDesktopDesc: "Native and cross-platform desktop software for Windows, macOS, and Linux — from internal tools to full commercial products.",
+    svcMobileTitle: "Mobile Applications",
+    svcMobileDesc: "iOS and Android apps built for real usage — from first prototype through App Store and Play Store release.",
+    svcWebTitle: "Websites & Web Apps",
+    svcWebDesc: "Marketing sites, dashboards, and full web applications — fast, responsive, and built to be maintained, not just shipped.",
+    svcSystemsTitle: "Management Systems",
+    svcSystemsDesc: "Inventory, booking, HR, and custom operations software that replaces spreadsheets and manual processes with something built for your workflow.",
+    svcDataTitle: "Data & Document Automation",
+    svcDataDesc: "Turning scraped websites, JSON exports, and messy spreadsheets into clean Excel reports and PDFs — a problem we keep getting asked to solve.",
+    systemsEyebrow: "Product line",
+    systemsTitle: "Systems we're building.",
+    systemsLead: "Alongside custom client work, we're building a line of ready-to-customize business systems — live demos you can see and adapt instead of starting from a blank page.",
+    processEyebrow: "How we work",
+    processTitle: "From brief to build, in four stages.",
+    processLead: "Every project — freelance or direct — follows the same process, so you always know what's next.",
+    processStep1Title: "Scope",
+    processStep1Desc: "We map your requirements, constraints, and timeline before writing a line of code.",
+    processStep2Title: "Design",
+    processStep2Desc: "Architecture and interface decisions get made deliberately, and shown to you before build.",
+    processStep3Title: "Build",
+    processStep3Desc: "Development happens in short cycles, with working versions in your hands early and often.",
+    processStep4Title: "Ship & support",
+    processStep4Desc: "We deploy, hand over what you need to run it, and stay reachable after launch.",
+    workEyebrow: "Selected work",
+    workTitle: "Recent builds.",
+    workLead: "A few of the projects we've shipped for clients and on freelance platforms.",
+    teamEyebrow: "The crew",
+    teamTitle: "Who's building this.",
+    teamLead: "A small team, each covering a different part of the stack.",
+    contactTitle: "Have a project in mind?",
+    contactLead: "Tell us what you're building. We'll reply with a scoped estimate — usually within a day or two.",
+    contactSend: "Send",
+    contactNote: "We'll never share your email. No spam, ever.",
+    contactThanks: "Thanks — we'll be in touch shortly.",
+    footerCopyright: "© 2026 Elevate Software. All rights reserved.",
+    footerNote: "Built in-house, obviously.",
+    viewCaseStudy: "View case study →",
+    viewBio: "View bio →",
+    builtFor: "Built for",
+    dataLoadErrorFile: 'Content failed to load because this page was opened directly (file://). Run a local server instead — e.g. `python3 -m http.server` in this folder, then open http://localhost:8000.',
+    dataLoadErrorOther: 'Content failed to load. Check that data.json exists and is valid JSON.',
+    statusLabels: { live: 'Live', 'in-development': 'In development', planned: 'Planned' },
+    linkLabels: { github: 'GitHub', linkedin: 'LinkedIn', website: 'Website', portfolio: 'Portfolio', twitter: 'Twitter' }
+  },
+  ar: {
+    navServices: "الخدمات",
+    navSystems: "الأنظمة",
+    navProcess: "منهجية العمل",
+    navWork: "أعمالنا",
+    navTeam: "الفريق",
+    navLicense: "احصل على ترخيص",
+    navContact: "تواصل",
+    navCta: "← ابدأ مشروعًا",
+    navCtaMobile: "ابدأ مشروعًا ←",
+    heroEyebrow: "استوديو برمجيات مستقل",
+    heroTitleHTML: 'نبني البرمجيات التي <span>يعتمد عليها عملك</span> فعلاً.',
+    heroLead: "إليفيت سوفتوير فريق صغير من المطورين يبني تطبيقات سطح المكتب والهاتف، والمواقع الإلكترونية، وأنظمة الإدارة — مصممة ومبنية حسب طلبك، لا من قالب جاهز. اكتسبنا خبرة خاصة في برمجيات المدارس وتحويل البيانات المبعثرة أو المستخرجة إلى مستندات نظيفة وقابلة للاستخدام.",
+    heroCtaQuote: "اطلب عرض سعر",
+    heroCtaWork: "شاهد أعمالنا",
+    servicesEyebrow: "ماذا نبني",
+    servicesTitle: "خمسة تخصصات، فريق واحد.",
+    servicesLead: "لا نحيلك بين أقسام مختلفة. نفس الفريق يحدد النطاق، يبني، وينفّذ مشروعك من البداية للنهاية.",
+    svcDesktopTitle: "تطبيقات سطح المكتب",
+    svcDesktopDesc: "برمجيات أصلية ومتعددة المنصات لسطح المكتب على ويندوز وماك ولينكس — من الأدوات الداخلية إلى المنتجات التجارية الكاملة.",
+    svcMobileTitle: "تطبيقات الهاتف",
+    svcMobileDesc: "تطبيقات آيفون وأندرويد مبنية للاستخدام الحقيقي — من أول نموذج أولي حتى الإصدار على المتجرين.",
+    svcWebTitle: "المواقع وتطبيقات الويب",
+    svcWebDesc: "مواقع تعريفية، لوحات تحكم، وتطبيقات ويب كاملة — سريعة، متجاوبة، ومبنية لتُصان لا لتُشحن فقط.",
+    svcSystemsTitle: "أنظمة الإدارة",
+    svcSystemsDesc: "أنظمة مخزون وحجوزات وموارد بشرية وعمليات مخصصة تستبدل الجداول اليدوية بما يناسب سير عملك.",
+    svcDataTitle: "أتمتة البيانات والمستندات",
+    svcDataDesc: "تحويل المواقع المستخرجة وملفات JSON والجداول المبعثرة إلى تقارير إكسل ونسخ PDF نظيفة — مشكلة نُطالب بحلها باستمرار.",
+    systemsEyebrow: "خط المنتجات",
+    systemsTitle: "أنظمة قيد البناء.",
+    systemsLead: "إلى جانب العمل المخصص لعملائنا، نبني خط أنظمة أعمال جاهزة للتخصيص — عروضًا حية يمكنك رؤيتها وتكييفها بدلاً من البدء من صفحة فارغة.",
+    processEyebrow: "كيف نعمل",
+    processTitle: "من الفكرة إلى البناء، على أربع مراحل.",
+    processLead: "كل مشروع — حر أو مباشر — يتبع نفس المنهجية، لتعرف دائمًا ما هي الخطوة التالية.",
+    processStep1Title: "تحديد النطاق",
+    processStep1Desc: "نرسم متطلباتك وقيودك وجدولك الزمني قبل كتابة أي سطر برمجي.",
+    processStep2Title: "التصميم",
+    processStep2Desc: "تُتخذ قرارات البنية والواجهة بعناية، وتُعرض عليك قبل البناء.",
+    processStep3Title: "البناء",
+    processStep3Desc: "التطوير يحدث على دورات قصيرة، مع نسخ عاملة بين يديك مبكرًا وباستمرار.",
+    processStep4Title: "الإطلاق والدعم",
+    processStep4Desc: "ننشر العمل، نسلّمك ما تحتاجه لتشغيله، ونبقى على تواصل بعد الإطلاق.",
+    workEyebrow: "أعمال مختارة",
+    workTitle: "أحدث إنجازاتنا.",
+    workLead: "بعض المشاريع التي أنجزناها لعملائنا وعلى منصات العمل الحر.",
+    teamEyebrow: "الفريق",
+    teamTitle: "من يبني هذا.",
+    teamLead: "فريق صغير، كل عضو يغطي جزءًا مختلفًا من المنظومة.",
+    contactTitle: "لديك مشروع في بالك؟",
+    contactLead: "أخبرنا بما تبنيه. سنرد بعرض سعر محدد — عادة خلال يوم أو يومين.",
+    contactSend: "إرسال",
+    contactNote: "لن نشارك بريدك الإلكتروني أبدًا. بدون أي رسائل مزعجة.",
+    contactThanks: "شكرًا — سنتواصل معك قريبًا.",
+    footerCopyright: "© 2026 إليفيت سوفتوير. جميع الحقوق محفوظة.",
+    footerNote: "مبني بالكامل داخل الاستوديو.",
+    viewCaseStudy: "← عرض دراسة الحالة",
+    viewBio: "← عرض النبذة",
+    builtFor: "بُني لـ",
+    dataLoadErrorFile: 'تعذّر تحميل المحتوى لأن الصفحة فُتحت مباشرة كملف (file://). شغّل خادمًا محليًا بدلاً من ذلك — مثلاً: `python3 -m http.server` من هذا المجلد، ثم افتح http://localhost:8000.',
+    dataLoadErrorOther: 'تعذّر تحميل المحتوى. تأكد من وجود data.json وأنه بصيغة JSON صحيحة.',
+    statusLabels: { live: 'مباشر', 'in-development': 'قيد التطوير', planned: 'مخطط له' },
+    linkLabels: { github: 'جيت هاب', linkedin: 'لينكدإن', website: 'الموقع', portfolio: 'أعمالي', twitter: 'تويتر' }
+  }
+};
+
+function getLang(){
+  try { return localStorage.getItem('elevate-lang') || 'en'; } catch { return 'en'; }
+}
+function setLang(lang){
+  try { localStorage.setItem('elevate-lang', lang); } catch {}
+}
+
+let currentLang = getLang();
+let currentSiteData = null; // cached data.json response, so toggling language doesn't re-fetch
+
+function t(key){ return translations[currentLang][key] ?? translations.en[key] ?? key; }
+
+function applyStaticTranslations(){
+  document.documentElement.lang = currentLang;
+  document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+  document.body.classList.toggle('lang-ar', currentLang === 'ar');
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    el.textContent = t(el.dataset.i18n);
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.dataset.i18nHtml;
+    const htmlKey = key.endsWith('HTML') ? key : `${key}HTML`;
+    el.innerHTML = translations[currentLang][htmlKey] ?? translations.en[htmlKey] ?? el.innerHTML;
+  });
+
+  const langBtns = [document.getElementById('langToggle'), document.getElementById('langToggleMobile')];
+  langBtns.forEach(btn => { if (btn) btn.setAttribute('aria-pressed', String(currentLang === 'ar')); });
+}
+
+function switchLang(lang){
+  currentLang = lang;
+  setLang(lang);
+  applyStaticTranslations();
+  if (currentSiteData) {
+    renderCapabilities(currentSiteData.capabilities || [], currentSiteData.capabilitiesAr || []);
+    renderSystems(currentSiteData.systems || []);
+    renderProjects(currentSiteData.projects || []);
+    renderTeam(currentSiteData.team || []);
+  }
+}
+
+const langToggleBtn = document.getElementById('langToggle');
+const langToggleMobileBtn = document.getElementById('langToggleMobile');
+if (langToggleBtn) langToggleBtn.addEventListener('click', () => switchLang(currentLang === 'en' ? 'ar' : 'en'));
+if (langToggleMobileBtn) langToggleMobileBtn.addEventListener('click', () => switchLang(currentLang === 'en' ? 'ar' : 'en'));
+
+applyStaticTranslations();
+
+// ---- localized data helper ----
+// Falls back to the English fields whenever an item has no "ar" block yet,
+// so adding translations is optional/incremental, never required.
+function localize(item){
+  if (currentLang === 'ar' && item.ar) return { ...item, ...item.ar };
+  return item;
+}
+
 // ---- mobile menu ----
   const menuToggle = document.getElementById('menuToggle');
   const mobileMenu = document.getElementById('mobileMenu');
@@ -236,7 +426,7 @@
         wireExpandableImage(slideEl, slides, index);
       }, 150);
       counter.textContent = `${index + 1} / ${slides.length}`;
-      thumbs.forEach((t, ti) => t.classList.toggle('active', ti === index));
+      thumbs.forEach((th, ti) => th.classList.toggle('active', ti === index));
       currentGallery.index = index;
     }
 
@@ -244,7 +434,7 @@
     wireExpandableImage(slideEl, slides, 0);
     mainEl.querySelector('.gallery-nav.prev').addEventListener('click', () => renderSlide(currentGallery.index - 1));
     mainEl.querySelector('.gallery-nav.next').addEventListener('click', () => renderSlide(currentGallery.index + 1));
-    thumbs.forEach((t, ti) => t.addEventListener('click', () => renderSlide(ti)));
+    thumbs.forEach((th, ti) => th.addEventListener('click', () => renderSlide(ti)));
   }
 
   // Optional "built for" credit. Only renders when a project explicitly has
@@ -258,10 +448,11 @@
     const label = p.client.url
       ? `<a href="${escapeHTML(p.client.url)}" target="_blank" rel="noopener noreferrer">${name}</a>`
       : name;
-    return `<p class="modal-client">Built for ${label}</p>`;
+    return `<p class="modal-client">${t('builtFor')} ${label}</p>`;
   }
 
-  function openProjectModal(p){
+  function openProjectModal(rawProject){
+    const p = localize(rawProject);
     const highlights = Array.isArray(p.highlights) && p.highlights.length
       ? `<ul class="modal-highlights">${p.highlights.map(h => `<li>${escapeHTML(h)}</li>`).join('')}</ul>`
       : '';
@@ -293,7 +484,8 @@
 
   function renderProjects(projects){
     const grid = document.getElementById('workGrid');
-    grid.innerHTML = projects.map((p, i) => {
+    grid.innerHTML = projects.map((rawP, i) => {
+      const p = localize(rawP);
       const thumbSrc = p.image || (Array.isArray(p.images) && p.images[0]) || '';
       return `
       <div class="work-card" role="button" tabindex="0" aria-haspopup="dialog" data-index="${i}">
@@ -306,7 +498,7 @@
           <span class="work-tag mono">${escapeHTML(p.tag)}</span>
           <h3>${escapeHTML(p.title)}</h3>
           <p>${escapeHTML(p.desc)}</p>
-          <span class="card-cta">View case study →</span>
+          <span class="card-cta">${t('viewCaseStudy')}</span>
         </div>
       </div>
     `;
@@ -324,45 +516,50 @@
   // ---- team grid ----
   // Same pattern: `image` drives the avatar photo, with initials as the
   // fallback whenever there's no image yet or it can't be loaded.
-  const linkLabels = { github: 'GitHub', linkedin: 'LinkedIn', website: 'Website', portfolio: 'Portfolio', twitter: 'Twitter' };
-
-  function openTeamModal(t){
-    const links = t.links && Object.keys(t.links).length
-      ? `<div class="modal-links">${Object.entries(t.links).map(([key, url]) =>
+  function openTeamModal(rawMember){
+    const t2 = localize(rawMember);
+    const linkLabels = translations[currentLang].linkLabels;
+    const links = t2.links && Object.keys(t2.links).length
+      ? `<div class="modal-links">${Object.entries(t2.links).map(([key, url]) =>
           `<a href="${escapeHTML(url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(linkLabels[key] || key)}</a>`
         ).join('')}</div>`
       : '';
+    const displayName = currentLang === 'ar' && t2.nameLocal ? t2.nameLocal : t2.name;
     openModal(`
       <div class="modal-avatar-row">
         <div class="modal-avatar">
-          ${t.image ? `<img src="${t.image}" alt="${escapeHTML(t.name)}"
+          ${t2.image ? `<img src="${t2.image}" alt="${escapeHTML(t2.name)}"
               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">` : ''}
-          <span class="avatar-fallback" style="display:${t.image ? 'none' : 'flex'};">${escapeHTML(t.initials)}</span>
+          <span class="avatar-fallback" style="display:${t2.image ? 'none' : 'flex'};">${escapeHTML(t2.initials)}</span>
         </div>
         <div>
-          <h2 id="modalTitle" style="margin-bottom:2px; padding-right:0;">${escapeHTML(t.name)}</h2>
-          <span class="modal-eyebrow" style="margin-bottom:0;">${escapeHTML(t.role)}</span>
+          <h2 id="modalTitle" style="margin-bottom:2px; padding-right:0;">${escapeHTML(displayName)}</h2>
+          <span class="modal-eyebrow" style="margin-bottom:0;">${escapeHTML(t2.role)}</span>
         </div>
       </div>
-      ${t.bio ? `<p>${escapeHTML(t.bio)}</p>` : ''}
+      ${t2.bio ? `<p>${escapeHTML(t2.bio)}</p>` : ''}
       ${links}
     `);
   }
 
   function renderTeam(team){
     const grid = document.getElementById('teamGrid');
-    grid.innerHTML = team.map((t, i) => `
+    grid.innerHTML = team.map((rawT, i) => {
+      const member = localize(rawT);
+      const displayName = currentLang === 'ar' && member.nameLocal ? member.nameLocal : member.name;
+      return `
       <div class="team-card" role="button" tabindex="0" aria-haspopup="dialog" data-index="${i}">
         <div class="team-avatar">
-          ${t.image ? `<img src="${t.image}" alt="${escapeHTML(t.name)}" loading="lazy"
+          ${member.image ? `<img src="${member.image}" alt="${escapeHTML(member.name)}" loading="lazy"
               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">` : ''}
-          <span class="avatar-fallback" style="display:${t.image ? 'none' : 'flex'};">${escapeHTML(t.initials)}</span>
+          <span class="avatar-fallback" style="display:${member.image ? 'none' : 'flex'};">${escapeHTML(member.initials)}</span>
         </div>
-        <h3>${escapeHTML(t.name)}</h3>
-        <div class="role mono">${escapeHTML(t.role)}</div>
-        <span class="card-cta">View bio →</span>
+        <h3>${escapeHTML(displayName)}</h3>
+        <div class="role mono">${escapeHTML(member.role)}</div>
+        <span class="card-cta">${t('viewBio')}</span>
       </div>
-    `).join('');
+    `;
+    }).join('');
 
     grid.querySelectorAll('.team-card').forEach(card => {
       const member = team[Number(card.dataset.index)];
@@ -374,21 +571,22 @@
   }
 
   // ---- capability strip ----
-  function renderCapabilities(caps){
+  function renderCapabilities(caps, capsAr){
     const track = document.getElementById('stripTrack');
-    const items = [...caps, ...caps]; // duplicate for seamless loop
+    const list = (currentLang === 'ar' && Array.isArray(capsAr) && capsAr.length === caps.length) ? capsAr : caps;
+    const items = [...list, ...list]; // duplicate for seamless loop
     track.innerHTML = items.map(c => `<div class="strip-item">${escapeHTML(c)}</div>`).join('');
   }
 
   // ---- systems (product line) ----
-  const statusLabels = { live: 'Live', 'in-development': 'In development', planned: 'Planned' };
-
   function renderSystems(systems){
     const grid = document.getElementById('systemsGrid');
     if (!grid) return;
-    grid.innerHTML = systems.map(s => {
-      const statusClass = `status-${s.status || 'planned'}`;
-      const statusLabel = statusLabels[s.status] || s.status || 'Planned';
+    const statusLabels = translations[currentLang].statusLabels;
+    grid.innerHTML = systems.map(rawS => {
+      const s = localize(rawS);
+      const statusClass = `status-${rawS.status || 'planned'}`;
+      const statusLabel = statusLabels[rawS.status] || rawS.status || statusLabels.planned;
       const tags = [...(s.tech || []), ...(s.industries || [])];
       return `
         <div class="system-card">
@@ -398,7 +596,7 @@
           </div>
           ${s.tagline ? `<span class="system-tagline mono">${escapeHTML(s.tagline)}</span>` : ''}
           <p>${escapeHTML(s.desc)}</p>
-          ${tags.length ? `<div class="system-tags">${tags.map(t => `<span>${escapeHTML(t)}</span>`).join('')}</div>` : ''}
+          ${tags.length ? `<div class="system-tags">${tags.map(tg => `<span>${escapeHTML(tg)}</span>`).join('')}</div>` : ''}
         </div>
       `;
     }).join('');
@@ -421,7 +619,8 @@
       return res.json();
     })
     .then(data => {
-      renderCapabilities(data.capabilities || []);
+      currentSiteData = data;
+      renderCapabilities(data.capabilities || [], data.capabilitiesAr || []);
       renderSystems(data.systems || []);
       renderProjects(data.projects || []);
       renderTeam(data.team || []);
@@ -429,9 +628,7 @@
     .catch(err => {
       console.error('Could not load site data:', err);
       const isFileProtocol = window.location.protocol === 'file:';
-      const note = isFileProtocol
-        ? 'Content failed to load because this page was opened directly (file://). Run a local server instead — e.g. `python3 -m http.server` in this folder, then open http://localhost:8000.'
-        : 'Content failed to load. Check that data.json exists and is valid JSON.';
+      const note = isFileProtocol ? t('dataLoadErrorFile') : t('dataLoadErrorOther');
       document.getElementById('stripTrack').innerHTML = `<div class="strip-item">${note}</div>`;
     });
 
@@ -441,7 +638,7 @@
   const note = document.getElementById('formNote');
   form.addEventListener('submit', function(e){
     e.preventDefault();
-    note.textContent = 'Thanks — we\'ll be in touch shortly.';
+    note.textContent = t('contactThanks');
     note.style.color = 'var(--cyan)';
     form.reset();
   });

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get a License — Elevate Software</title>
+<meta name="description" content="Licensed apps built by Elevate Software — screenshots, pricing, and direct downloads.">
+<link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="/" class="logo"><span class="mark"><img src="assets/logo.png" alt="Elevate Software logo"></span>ELEVATE SOFTWARE</a>
+    <div class="nav-links">
+      <a href="/#services" data-i18n="navServices">Services</a>
+      <a href="/#systems" data-i18n="navSystems">Systems</a>
+      <a href="/#work" data-i18n="navWork">Work</a>
+      <a href="/#team" data-i18n="navTeam">Team</a>
+      <a href="/get-license" class="active-link" data-i18n="navLicense">Get a License</a>
+    </div>
+    <div class="nav-right">
+      <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">EN / عربي</button>
+      <a href="/#contact" class="nav-cta" data-i18n="navCta">START A PROJECT →</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">☰</button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/#services" data-i18n="navServices">Services</a>
+    <a href="/#systems" data-i18n="navSystems">Systems</a>
+    <a href="/#work" data-i18n="navWork">Work</a>
+    <a href="/#team" data-i18n="navTeam">Team</a>
+    <a href="/get-license" data-i18n="navLicense">Get a License</a>
+    <button class="lang-toggle lang-toggle-mobile" id="langToggleMobile" type="button" aria-label="Switch language">EN / عربي</button>
+    <a href="/#contact" class="btn btn-primary" data-i18n="navCtaMobile">Start a project →</a>
+  </div>
+</header>
+
+<section class="hero license-hero">
+  <div class="wrap">
+    <div class="eyebrow" data-i18n="heroEyebrow">Ready-made software</div>
+    <h1 data-i18n="heroTitle">License one of our apps.</h1>
+    <p class="lead" data-i18n="heroLead">Alongside custom client work, we build and maintain our own apps — each one licensed and activated through our own license server. Download a build directly, or reach out to get licensed.</p>
+  </div>
+</section>
+
+<section id="apps">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="sectionEyebrow">Licensed apps</div>
+      <h2 data-i18n="sectionTitle">Pick an app, get a license.</h2>
+      <p data-i18n="sectionLead">Every app below is real, shipped software we built and actively license — not a mockup. Click a card for screenshots and details.</p>
+    </div>
+    <div class="license-grid" id="licenseGrid"></div>
+  </div>
+</section>
+
+<section id="license-contact">
+  <div class="wrap">
+    <div class="cta-band">
+      <h2 data-i18n="ctaTitle">Don't see what you need?</h2>
+      <p data-i18n-html="ctaBody">We also build custom software from scratch. <a href="/#contact">Start a project</a> instead, or message us on WhatsApp about any of the apps above.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <a href="/" class="logo"><span class="mark"><img src="assets/logo.png" alt="Elevate Software logo"></span>ELEVATE SOFTWARE</a>
+      <div class="footer-links">
+        <a href="/#services" data-i18n="navServices">Services</a>
+        <a href="/#systems" data-i18n="navSystems">Systems</a>
+        <a href="/#work" data-i18n="navWork">Work</a>
+        <a href="/#team" data-i18n="navTeam">Team</a>
+        <a href="/get-license" data-i18n="navLicense">Get a License</a>
+        <a href="/#contact" data-i18n="navContact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Elevate Software. All rights reserved.</span>
+      <span data-i18n="footerNote">Built in-house, obviously.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="modalOverlay" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<div class="lightbox-overlay" id="lightboxOverlay" aria-hidden="true">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
+  <button class="lightbox-nav prev" id="lightboxPrev" aria-label="Previous image">‹</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+  <button class="lightbox-nav next" id="lightboxNext" aria-label="Next image">›</button>
+  <span class="lightbox-counter" id="lightboxCounter"></span>
+</div>
+
+<script src="get-license.js"></script>
+
+</body>
+</html>

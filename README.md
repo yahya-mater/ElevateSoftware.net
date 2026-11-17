@@ -11,11 +11,14 @@ safely regenerate or update it without breaking the site.
 | File | Purpose |
 |---|---|
 | `index.html` | Page structure and markup. Rarely needs editing for content changes. |
-| `style.css` | All styling. |
-| `app.js` | Fetches `data.json` and renders capabilities, systems, projects, and team into the page. Do not need to touch this for routine content updates. |
+| `style.css` | All styling, including the `get-license` page. |
+| `app.js` | Fetches `data.json` and renders capabilities, systems, projects, and team into `index.html`. Do not need to touch this for routine content updates. |
+| `get-license/index.html` | The `/get-license` page — lists licensed apps separately from the `index.html` portfolio. |
+| `get-license/get-license.js` | Fetches `data.json` and renders the `licensedApps` array into the `get-license` page. Do not need to touch this for routine content updates. |
 | `data.json` | **The only file that should change for routine content updates.** Documented in full below. |
 | `assets/projects/` | Project screenshots. Filenames referenced by `image`/`images` fields in `data.json`. |
 | `assets/team/` | Team member photos. Filenames referenced by `image` fields in `data.json`. |
+| `updates/` | Each licensed app's own AutoUpdater-style XML file (e.g. `updates/Jadwalak.xml`), used by both the app itself (to check for updates) and the `get-license` page (to build the Download button). Referenced by `updateXml` fields in `data.json` — see `licensedApps` below. |
 
 ## Running locally
 
@@ -73,12 +76,28 @@ normally present.
 
 ```json
 {
+  "whatsappNumber":     "", /* used by get-license — see below */
+  "githubReleasesRepo": "", /* used by get-license — see below */
   "capabilities": [ /* array of strings */ ],
   "systems":      [ /* array of system objects */ ],
   "projects":     [ /* array of project objects */ ],
+  "licensedApps": [ /* array of licensed-app objects — used by get-license, not index.html */ ],
   "team":         [ /* array of team member objects */ ]
 }
 ```
+
+### `whatsappNumber` and `githubReleasesRepo`
+
+Two top-level strings used only by the `get-license` page:
+
+- `whatsappNumber` — digits only, country code first, no `+` or leading `0` (e.g.
+  `"9627XXXXXXXX"`). Until this is set, every "Get a license" button on
+  `get-license` falls back to a link to the homepage contact form instead of a
+  broken WhatsApp link, and the page shows a visible reminder.
+- `githubReleasesRepo` — `"owner/repo"` of the GitHub repo that hosts release
+  binaries (currently `"yahya-mater/ElevateSoftware.net"`). Purely informational —
+  nothing in the code builds a URL from it; each app's actual download link comes
+  from its own `updateXml` file instead (see `licensedApps` below).
 
 ### `capabilities`
 
@@ -184,6 +203,52 @@ below it. A project can have both, either, or neither.
   have a `client` field at all — there isn't one.
 - When in doubt, omit the field. A project with no credit is the safe default; a
   project with a fabricated or unauthorized credit is the harmful outcome to avoid.
+
+---
+
+### `licensedApps` — the `get-license` page (separate from `projects`)
+
+Rendered only on `get-license/index.html`, by `get-license/get-license.js` —
+`index.html`/`app.js` never read this array. An app can appear in both
+`projects` and `licensedApps` (they serve different purposes: `projects` is the
+case-study portfolio, `licensedApps` is "here's what you can license today"),
+appear in only one, or in neither (e.g. a free tool like Qalib that needs no
+license has no reason to be listed here).
+
+```json
+{
+  "name": "Jadwalak",
+  "nameLocal": "جدولك",
+  "tagline": "Lecture timetable builder",
+  "desc": "One or two sentences — what it does and who it's for.",
+  "platforms": ["Windows"],
+  "images": [
+    "assets/projects/Jadwalak/thumbnail.png",
+    "assets/projects/Jadwalak/1.png"
+  ],
+  "highlights": [
+    "Short, specific, factual bullet point"
+  ],
+  "price": null,
+  "billing": null,
+  "updateXml": "/updates/Jadwalak.xml"
+}
+```
+
+| Field | Required | Type | Notes |
+|---|---|---|---|
+| `name` | Yes | string | App name. |
+| `nameLocal` | No | string | Native-script name shown alongside `name` (e.g. Arabic). Omit if the app has no local-language name in use. |
+| `tagline` | No | string | Short subtitle, shown on the card and in the modal eyebrow. |
+| `desc` | Yes | string | One to two sentences. |
+| `platforms` | No | array of strings | e.g. `["Windows", "Android"]`. Shown as small tags. |
+| `images` | No | array of strings (paths) | Screenshots. Same gallery/lightbox behavior as a project's `images` — empty or absent falls back to a generated pattern graphic, same as a project with no `image`. |
+| `highlights` | No | array of strings | Must be genuinely true — see the ground rules at the top of this file. |
+| `price` | No | string, number, or `null` | Displayed as-is (e.g. `"25 JOD"`, `"$10/mo"`). `null` (or omitted) shows "Ask for pricing" — never invent a number. |
+| `billing` | No | string or `null` | Free text shown as a small label next to the price (e.g. `"one-time"`, `"monthly"`, `"yearly"`, `"per-subject"`, `"per school"`). `null`/omitted shows nothing. |
+| `updateXml` | No | string (path) or `null` | Path to this app's own update-check XML file (e.g. `"/updates/Jadwalak.xml"`), the same file the installed app itself polls for new versions. The page fetches it and reads `<url>` (Windows installer) and `<apkUrl>` (Android APK, if present) to build the Download button(s) — one button per link the file actually contains. **This must point at a real file that already exists at that path**; `null`/omitted renders a disabled "Download coming soon" instead of a dead link. Never invent a path, a version, or a filename — this is the one thing in this file that's actually clickable, and because it always reads whatever the XML currently says, the download link stays correct automatically every time a new version is released (no more editing `data.json` per release). |
+
+**Keeping the update XML files in `updates/` current is what keeps downloads current.** When a new installer ships, update that app's `<url>` (and `<apkUrl>`/`<version>`/checksums as applicable) in its XML file — `data.json` itself needs no changes for a routine new release.
 
 ---
 

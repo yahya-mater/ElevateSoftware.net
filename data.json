@@ -1,4 +1,6 @@
 {
+  "whatsappNumber": "+962788460070",
+  "githubReleasesRepo": "yahya-mater/ElevateSoftware.net",
   "capabilities": [
     "DESKTOP APPS",
     "MOBILE APPS",
@@ -9,6 +11,16 @@
     "BROWSER EXTENSIONS",
     "MAINTENANCE & SUPPORT"
   ],
+  "capabilitiesAr": [
+    "تطبيقات سطح المكتب",
+    "تطبيقات الهاتف",
+    "تطبيقات الويب",
+    "أنظمة الإدارة",
+    "أتمتة البيانات والمستندات",
+    "برمجيات المدارس والتعليم",
+    "إضافات المتصفح",
+    "الصيانة والدعم"
+  ],
   "systems": [
     {
       "name": "Restaurant Management System",
@@ -16,27 +28,48 @@
       "desc": "Next in our systems line — order tracking, inventory, and staff scheduling built for restaurants and food service businesses.",
       "status": "planned",
       "tech": ["React"],
-      "industries": ["Restaurants", "Food service"]
+      "industries": ["Restaurants", "Food service"],
+      "ar": {
+        "name": "نظام إدارة المطاعم",
+        "tagline": "الطلبات + المخزون + الموظفين",
+        "desc": "التالي في خط أنظمتنا — تتبع الطلبات والمخزون وجدولة الموظفين، مصمم للمطاعم ومنشآت خدمات الطعام.",
+        "industries": ["مطاعم", "خدمات طعام"]
+      }
     },
     {
       "name": "License Server",
       "tagline": "Licensing infrastructure for in-house apps",
       "desc": "An ASP.NET licensing service with a companion C# client library for WinForms apps. Supports Admin, Manager, and Staff roles, and can onboard any new app by registering it and issuing an app ID used to verify licenses.",
       "status": "live",
-      "tech": ["ASP.NET", "C#"]
+      "tech": ["ASP.NET", "C#"],
+      "ar": {
+        "name": "خادم التراخيص",
+        "tagline": "بنية تحتية لترخيص تطبيقاتنا الداخلية",
+        "desc": "خدمة ترخيص مبنية على ASP.NET مع مكتبة عميل C# مرافقة لتطبيقات WinForms. تدعم أدوار المسؤول والمدير والموظف، ويمكنها استقبال أي تطبيق جديد عبر تسجيله وإصدار معرّف تطبيق يُستخدم للتحقق من التراخيص."
+      }
     },
     {
       "name": "Licensed Browser Wrapper Template",
       "tagline": "WinForms desktop app starter kit",
       "desc": "An in-house C# WinForms template for building browser-wrapper desktop apps with licensing already integrated — the base we build our desktop products on.",
       "status": "live",
-      "tech": ["C#", "WinForms"]
+      "tech": ["C#", "WinForms"],
+      "ar": {
+        "name": "قالب تطبيق سطح مكتب مرخّص",
+        "tagline": "نقطة انطلاق لتطبيقات WinForms",
+        "desc": "قالب داخلي بلغة C# لبناء تطبيقات سطح مكتب تعتمد على متصفح مدمج، مع ترخيص مدمج مسبقًا — الأساس الذي نبني عليه منتجاتنا لسطح المكتب."
+      }
     },
     {
       "name": "Static Site + Content Manager Template",
       "tagline": "GitHub Pages site with a JSON-driven updater app",
       "desc": "A reusable template pairing a static site — hosted on GitHub Pages, content driven entirely by a JSON file — with a companion desktop app that updates that JSON. This same system powers this site.",
-      "status": "live"
+      "status": "live",
+      "ar": {
+        "name": "قالب موقع ثابت + تطبيق إدارة محتوى",
+        "tagline": "موقع على GitHub Pages مع تطبيق تحديث يعتمد على JSON",
+        "desc": "قالب قابل لإعادة الاستخدام يجمع بين موقع ثابت — مستضاف على GitHub Pages، يعتمد محتواه بالكامل على ملف JSON — وتطبيق سطح مكتب مرافق يحدّث ذلك الملف. هذا هو النظام ذاته الذي يشغّل هذا الموقع."
+      }
     }
   ],
   "projects": [
@@ -58,7 +91,17 @@
         "Dashboard with revenue, orders, customer counts, and monthly charts",
         "Single-tenant design with role-based access (Admin, Manager, Staff)",
         "Built as a showcase piece and a customizable base for client projects"
-      ]
+      ],
+      "ar": {
+        "tag": "نظام إدارة",
+        "desc": "نظام متكامل لإدارة الأعمال يجمع بين إدارة علاقات العملاء وتتبع المخزون — مبني كقاعدة مرنة أحادية المستأجر نخصصها لكل عميل.",
+        "highlights": [
+          "يغطي العملاء والمنتجات/المخزون والطلبات والتحليلات في نظام واحد",
+          "لوحة تحكم بالإيرادات والطلبات وعدد العملاء والرسوم البيانية الشهرية",
+          "تصميم أحادي المستأجر مع صلاحيات حسب الدور (مسؤول، مدير، موظف)",
+          "بُني كعمل عرضي وكقاعدة قابلة للتخصيص لمشاريع العملاء"
+        ]
+      }
     },
     {
       "tag": "Desktop App",
@@ -80,7 +123,17 @@
         "Generates attendance records, marks records, and certificates by filling Excel templates",
         "Used by both public schools and school-supply stores that serve them",
         "Licensed app; no website or mobile version planned"
-      ]
+      ],
+      "ar": {
+        "tag": "تطبيق سطح مكتب",
+        "desc": "تطبيق سطح مكتب للمدارس الحكومية الأردنية ومحلات القرطاسية المتعاملة معها. يسحب بيانات المدرسة من بوابة إميس التابعة لوزارة التربية ويستخدمها لتعبئة قوالب إكسل، لإصدار سجلات الحضور والعلامات والشهادات.",
+        "highlights": [
+          "يسحب البيانات مباشرة من بوابة إميس التابعة لوزارة التربية الأردنية (ajyal.moe.gov.jo/emis)",
+          "يُصدر سجلات الحضور والعلامات والشهادات عبر تعبئة قوالب إكسل",
+          "يستخدمه كل من المدارس الحكومية ومحلات القرطاسية التي تخدمها",
+          "تطبيق مرخّص؛ لا توجد خطة لنسخة موقع أو هاتف"
+        ]
+      }
     },
     {
       "tag": "Management System",
@@ -110,7 +163,17 @@
         "Also used by external providers offering financial services to headmasters",
         "Website and/or mobile versions planned, pending licensing arrangements",
         "Licensed app"
-      ]
+      ],
+      "ar": {
+        "tag": "نظام إدارة",
+        "desc": "نظام لإدارة الشؤون المالية لمديري المدارس الحكومية الأردنية، يستخدمه أيضًا أطراف خارجية تقدّم خدمات مالية للمديرين. تطبيق سطح مكتب حاليًا، مع نسخ موقع و/أو هاتف مخطط لها.",
+        "highlights": [
+          "بُني أساسًا للاستخدام اليومي من قبل مديري المدارس",
+          "يستخدمه أيضًا مزودون خارجيون يقدمون خدمات مالية للمديرين",
+          "نسخ الموقع و/أو الهاتف مخطط لها، بانتظار ترتيبات الترخيص",
+          "تطبيق مرخّص"
+        ]
+      }
     },
     {
       "tag": "Custom Build",
@@ -126,7 +189,17 @@
         "Preserves template formatting, merged cells, and formulas across every generated sheet",
         "Runs 100% locally — no files are uploaded to any server",
         "Free to use, with no license required"
-      ]
+      ],
+      "ar": {
+        "tag": "بناء مخصص",
+        "desc": "أداة سطح مكتب مجانية تُنشئ ملفات إكسل بالجملة من مصفوفة JSON وقالب إكسل واحد، وتستبدل العناصر النائبة {{tag}} ببيانات كل سجل — بما في ذلك الكائنات المتداخلة وقوائم الكائنات.",
+        "highlights": [
+          "يدعم الكائنات المتداخلة ({{parent.child}}) والقوائم، بما فيها قوائم الكائنات ({{list[0].field}})",
+          "يحافظ على تنسيق القالب والخلايا المدمجة والمعادلات في كل ورقة يتم إنشاؤها",
+          "يعمل بالكامل محليًا — لا تُرفع أي ملفات إلى أي خادم",
+          "مجاني الاستخدام، بدون الحاجة لترخيص"
+        ]
+      }
     },
     {
       "tag": "Desktop App",
@@ -155,81 +228,284 @@
         "Handles the scheduling constraints specific to lecture timetabling",
         "Website and/or mobile versions planned, pending licensing arrangements and further work on the scheduling algorithm",
         "Licensed app"
-      ]
+      ],
+      "ar": {
+        "tag": "تطبيق سطح مكتب",
+        "desc": "تطبيق سطح مكتب يساعد المدارس الحكومية الأردنية على بناء وتعديل الجداول الدراسية لطاقمها التدريسي.",
+        "highlights": [
+          "مصمم ليستخدمه طاقم المدرسة مباشرة دون خبرة تقنية",
+          "يتعامل مع قيود الجدولة الخاصة بجداول المحاضرات",
+          "نسخ الموقع و/أو الهاتف مخطط لها، بانتظار ترتيبات الترخيص والمزيد من العمل على خوارزمية الجدولة",
+          "تطبيق مرخّص"
+        ]
+      }
     },
     {
       "tag": "Browser Extension",
       "title": "Web-to-PDF Research Tool",
       "desc": "Browser extension built for journalists to extract data from web pages into clean, reliable PDFs — solving inconsistent browser print output.",
-      
+
       "highlights": [
         "Extracts page data directly into a clean PDF layout",
         "Solves the inconsistency of standard browser print-to-PDF",
         "Built specifically around a journalist's research workflow"
-      ]
+      ],
+      "ar": {
+        "tag": "إضافة متصفح",
+        "desc": "إضافة متصفح مبنية للصحفيين لاستخراج البيانات من صفحات الويب إلى ملفات PDF نظيفة وموثوقة — تحل مشكلة عدم ثبات طباعة المتصفح.",
+        "highlights": [
+          "يستخرج بيانات الصفحة مباشرة إلى تخطيط PDF نظيف",
+          "يحل مشكلة عدم ثبات طباعة المتصفح إلى PDF",
+          "مبني خصيصًا حول سير عمل البحث الصحفي"
+        ]
+      }
     },
     {
       "tag": "Mobile App",
       "title": "Parental Control App",
       "desc": "Mobile app for scheduling device usage windows and locking access with a PIN.",
-      
+
       "highlights": [
         "Scheduled device usage windows",
         "PIN-based lock for restricted periods"
-      ]
+      ],
+      "ar": {
+        "tag": "تطبيق هاتف",
+        "desc": "تطبيق هاتف لجدولة أوقات استخدام الجهاز وقفل الوصول برمز PIN.",
+        "highlights": [
+          "نوافذ زمنية مجدولة لاستخدام الجهاز",
+          "قفل برمز PIN خلال الفترات المقيدة"
+        ]
+      }
     },
     {
       "tag": "Web App",
       "title": "University Attendance System",
       "desc": "Web-based attendance tracking system built with ASP.NET as a university project.",
-      
+
       "highlights": [
         "Built with ASP.NET",
         "Digitizes attendance tracking for a university course"
-      ]
+      ],
+      "ar": {
+        "tag": "تطبيق ويب",
+        "desc": "نظام لتتبع الحضور عبر الويب مبني باستخدام ASP.NET كمشروع جامعي.",
+        "highlights": [
+          "مبني باستخدام ASP.NET",
+          "يحوّل تتبع الحضور لمادة جامعية إلى نظام رقمي"
+        ]
+      }
+    }
+  ],
+  "licensedApps": [
+    {
+      "name": "Maqsafuna",
+      "nameLocal": "مقصفنا",
+      "tagline": "School canteen accounting",
+      "desc": "The official accounting app for school canteens — tracks sales, stock, and daily totals for canteen operators. Runs on Windows and Android.",
+      "platforms": ["Windows", "Android"],
+      "images": [],
+      "highlights": [
+        "Built specifically for school canteen operations",
+        "Windows and Android versions, same account",
+        "Licensed and activated per school"
+      ],
+      "price": 15,
+      "currency": "JD",
+      "billing": "one-time",
+      "updateXml": "updates/Maqsafuna.xml",
+      "ar": {
+        "tagline": "محاسبة مقصف المدرسة",
+        "desc": "التطبيق الرسمي لمحاسبة مقاصف المدارس — يتتبع المبيعات والمخزون والإجماليات اليومية لمشغلي المقصف. يعمل على ويندوز وأندرويد.",
+        "highlights": [
+          "مصمم خصيصًا لعمليات مقصف المدرسة",
+          "نسخة لويندوز وأندرويد بنفس الحساب",
+          "مرخّص ومفعّل لكل مدرسة"
+        ]
+      }
+    },
+    {
+      "name": "Jadwalak",
+      "nameLocal": "جدولك",
+      "tagline": "Lecture timetable builder",
+      "desc": "Generates conflict-free lecture timetables for schools automatically, instead of building them by hand. Windows desktop app.",
+      "platforms": ["Windows"],
+      "images": [
+        "assets/projects/Jadwalak/thumbnail.png",
+        "assets/projects/Jadwalak/1.png",
+        "assets/projects/Jadwalak/2.png",
+        "assets/projects/Jadwalak/3.png",
+        "assets/projects/Jadwalak/4.png",
+        "assets/projects/Jadwalak/5.png",
+        "assets/projects/Jadwalak/6.png",
+        "assets/projects/Jadwalak/7.png",
+        "assets/projects/Jadwalak/8.png",
+        "assets/projects/Jadwalak/9.png",
+        "assets/projects/Jadwalak/10.png",
+        "assets/projects/Jadwalak/11.png",
+        "assets/projects/Jadwalak/12.png",
+        "assets/projects/Jadwalak/13.png",
+        "assets/projects/Jadwalak/14.png"
+      ],
+      "highlights": [
+        "Automatic conflict-free scheduling",
+        "Built for non-technical school staff to run directly",
+        "Licensed per school"
+      ],
+      "price": 15,
+      "currency": "JD",
+      "billing": "one-time",
+      "updateXml": null,
+      "ar": {
+        "tagline": "منشئ الجدول الدراسي",
+        "desc": "يُنشئ جداول المحاضرات للمدارس تلقائيًا وبدون تعارضات، بدلاً من بنائها يدويًا. تطبيق سطح مكتب لويندوز.",
+        "highlights": [
+          "جدولة تلقائية بدون تعارضات",
+          "مصمم ليستخدمه الطاقم المدرسي مباشرة دون خبرة تقنية",
+          "مرخّص لكل مدرسة"
+        ]
+      }
+    },
+    {
+      "name": "Ajyal Assistant",
+      "nameLocal": "مساعد أجيال",
+      "tagline": "Educational data exporter",
+      "desc": "Pulls data from the Ajyal educational platform (Jordan's MOE EMIS portal) and fills Excel templates to generate attendance records, marks records, and certificates automatically.",
+      "platforms": ["Windows"],
+      "images": [
+        "assets/projects/Ajyal Assistant/thumbnail.png",
+        "assets/projects/Ajyal Assistant/1.png",
+        "assets/projects/Ajyal Assistant/2.png",
+        "assets/projects/Ajyal Assistant/3.png",
+        "assets/projects/Ajyal Assistant/4.png",
+        "assets/projects/Ajyal Assistant/5.png",
+        "assets/projects/Ajyal Assistant/6.png",
+        "assets/projects/Ajyal Assistant/7.png"
+      ],
+      "highlights": [
+        "Pulls structured data straight from the EMIS portal",
+        "Generates attendance, marks, and certificates via Excel templates",
+        "Semester subscription per user"
+      ],
+      "price": 30,
+      "currency": "JD",
+      "billing": "per-semester",
+      "updateXml": "updates/Ajyal Assistant.xml",
+      "ar": {
+        "tagline": "مصدّر البيانات التعليمية",
+        "desc": "يسحب البيانات من منصة أجيال التعليمية (بوابة نظام إميس التابعة لوزارة التربية الأردنية) ويعبئ قوالب إكسل لإصدار سجلات الحضور والعلامات والشهادات تلقائيًا.",
+        "highlights": [
+          "يسحب البيانات المنظمة مباشرة من بوابة إميس",
+          "يُصدر سجلات الحضور والعلامات والشهادات عبر قوالب إكسل",
+          "اشتراك فصلي لكل مستخدم"
+        ]
+      }
+    },
+    {
+      "name": "Mizan",
+      "nameLocal": "ميزان",
+      "tagline": "School finance management",
+      "desc": "Finance management system for school headmasters, also used by third parties who provide financial services to headmasters. Windows desktop app.",
+      "platforms": ["Windows"],
+      "images": [
+        "assets/projects/Mizan/thumbnail.png",
+        "assets/projects/Mizan/1.png",
+        "assets/projects/Mizan/2.png",
+        "assets/projects/Mizan/3.png",
+        "assets/projects/Mizan/4.png",
+        "assets/projects/Mizan/5.png",
+        "assets/projects/Mizan/6.png",
+        "assets/projects/Mizan/7.png",
+        "assets/projects/Mizan/8.png",
+        "assets/projects/Mizan/9.png",
+        "assets/projects/Mizan/10.png",
+        "assets/projects/Mizan/11.png",
+        "assets/projects/Mizan/12.png",
+        "assets/projects/Mizan/13.png",
+        "assets/projects/Mizan/14.png",
+        "assets/projects/Mizan/15.png"
+      ],
+      "highlights": [
+        "Built desktop-first for headmasters' daily use",
+        "Also used by external providers offering financial services to headmasters",
+        "Licensed per school"
+      ],
+      "price": 15,
+      "currency": "JD",
+      "billing": "one-time",
+      "updateXml": "updates/Mizan.xml",
+      "ar": {
+        "tagline": "إدارة الشؤون المالية للمدرسة",
+        "desc": "نظام لإدارة الشؤون المالية لمديري المدارس، ويستخدمه أيضًا أطراف خارجية تقدّم خدمات مالية للمديرين. تطبيق سطح مكتب لويندوز.",
+        "highlights": [
+          "مصمم أساسًا للاستخدام اليومي من قبل مديري المدارس",
+          "يُستخدم أيضًا من قبل جهات خارجية تقدّم خدمات مالية للمديرين",
+          "مرخّص لكل مدرسة"
+        ]
+      }
     }
   ],
   "team": [
     {
       "initials": "AJ",
       "name": "Ahmad Juma",
+      "nameLocal": "أحمد جمعة",
       "role": "Full-stack / Web",
       "image": "assets/team/Ahmad Juma/profile.jpeg",
       "bio": "Builds most of our web apps end to end, from database to interface. Previously worked on internal tools for a logistics company.",
       "links": {
         "github": "https://github.com/AHMADJUAM"
+      },
+      "ar": {
+        "role": "مطور ويب متكامل",
+        "bio": "يبني معظم تطبيقات الويب لدينا من الألف إلى الياء، من قاعدة البيانات إلى الواجهة. عمل سابقًا على أدوات داخلية لشركة خدمات لوجستية."
       }
     },
     {
       "initials": "OJ",
       "name": "Omar Jradeen",
+      "nameLocal": "عمر جريدين",
       "role": "Mobile / iOS & Android",
       "image": "assets/team/Omar Jradeen/profile.jpeg",
       "bio": "Focuses on mobile apps, especially offline-first tools for field work. Has shipped apps on both the App Store and Play Store.",
       "links": {
         "github": "https://github.com/jradeen"
+      },
+      "ar": {
+        "role": "تطبيقات الهاتف / آيفون وأندرويد",
+        "bio": "يركّز على تطبيقات الهاتف، خصوصًا الأدوات التي تعمل دون اتصال للعمل الميداني. أطلق تطبيقات على متجري آبل وجوجل."
       }
     },
     {
       "initials": "YM",
       "name": "Yahia Matar",
+      "nameLocal": "يحيى مطر",
       "role": "Desktop / Systems",
       "image": "assets/team/Yahia Matar/profile.jpeg",
       "bio": "Handles desktop applications and the backend systems behind our management platforms.",
       "links": {
         "github": "https://github.com/yahya-mater",
         "website": "https://portfolio.futureisnow.site/"
+      },
+      "ar": {
+        "role": "سطح المكتب / الأنظمة",
+        "bio": "يتولى تطبيقات سطح المكتب والأنظمة الخلفية وراء منصات الإدارة لدينا."
       }
     },
     {
       "initials": "AS",
       "name": "Ahmad Samara",
+      "nameLocal": "أحمد سمارة",
       "role": "Design / UX",
       "image": "assets/team/Ahmad Samara/profile.jpg",
       "bio": "Designs the interfaces across everything we build, and keeps the team's output visually consistent.",
       "links": {
         "linkedin": "https://www.linkedin.com/in/%D8%A7%D8%AD%D9%85%D8%AF-%D8%B3%D9%85%D8%A7%D8%B1%D8%A9-a4919a366/",
         "github": "https://github.com/advr3"
+      },
+      "ar": {
+        "role": "التصميم / تجربة المستخدم",
+        "bio": "يصمم الواجهات عبر كل ما نبنيه، ويحافظ على اتساق المظهر البصري لعمل الفريق."
       }
     }
   ]

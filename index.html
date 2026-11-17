@@ -6,41 +6,50 @@
 <title>Elevate Software — Software, Built to Spec</title>
 <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <header>
   <nav class="wrap">
-    <div class="logo"><span class="mark"><img src="assets/logo.png" alt="Elevate Software logo"></span>ELEVATE SOFTWARE</div>
+    <a href="/" class="logo"><span class="mark"><img src="assets/logo.png" alt="Elevate Software logo"></span>ELEVATE SOFTWARE</a>
     <div class="nav-links">
-      <a href="#services">Services</a>
-      <a href="#systems">Systems</a>
-      <a href="#process">Process</a>
-      <a href="#work">Work</a>
-      <a href="#team">Team</a>
+      <a href="#services" data-i18n="navServices">Services</a>
+      <a href="#systems" data-i18n="navSystems">Systems</a>
+      <a href="#process" data-i18n="navProcess">Process</a>
+      <a href="#work" data-i18n="navWork">Work</a>
+      <a href="#team" data-i18n="navTeam">Team</a>
+      <a href="/get-license" data-i18n="navLicense">Get a License</a>
     </div>
-    <a href="#contact" class="nav-cta">START A PROJECT →</a>
+    <div class="nav-right">
+      <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">EN / عربي</button>
+      <a href="#contact" class="nav-cta" data-i18n="navCta">START A PROJECT →</a>
+    </div>
     <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">☰</button>
   </nav>
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#services">Services</a>
-    <a href="#systems">Systems</a>
-    <a href="#process">Process</a>
-    <a href="#work">Work</a>
-    <a href="#team">Team</a>
-    <a href="#contact" class="btn btn-primary">Start a project →</a>
+    <a href="#services" data-i18n="navServices">Services</a>
+    <a href="#systems" data-i18n="navSystems">Systems</a>
+    <a href="#process" data-i18n="navProcess">Process</a>
+    <a href="#work" data-i18n="navWork">Work</a>
+    <a href="#team" data-i18n="navTeam">Team</a>
+    <a href="/get-license" data-i18n="navLicense">Get a License</a>
+    <button class="lang-toggle lang-toggle-mobile" id="langToggleMobile" type="button" aria-label="Switch language">EN / عربي</button>
+    <a href="#contact" class="btn btn-primary" data-i18n="navCtaMobile">Start a project →</a>
   </div>
 </header>
 
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <div class="eyebrow">Independent software studio</div>
-      <h1>We build the software <span>your business</span> actually runs on.</h1>
-      <p class="lead">Elevate Software is a small crew of developers building desktop &amp; mobile apps, websites, and management systems — designed and built to your spec, not off a template. We've built up a particular knack for school software and turning messy or scraped data into clean, usable documents.</p>
+      <div class="eyebrow" data-i18n="heroEyebrow">Independent software studio</div>
+      <h1 data-i18n-html="heroTitle">We build the software <span>your business</span> actually runs on.</h1>
+      <p class="lead" data-i18n="heroLead">Elevate Software is a small crew of developers building desktop &amp; mobile apps, websites, and management systems — designed and built to your spec, not off a template. We've built up a particular knack for school software and turning messy or scraped data into clean, usable documents.</p>
       <div class="hero-actions">
-        <a href="#contact" class="btn btn-primary">Get a quote</a>
-        <a href="#work" class="btn btn-ghost">See our work</a>
+        <a href="#contact" class="btn btn-primary" data-i18n="heroCtaQuote">Get a quote</a>
+        <a href="#work" class="btn btn-ghost" data-i18n="heroCtaWork">See our work</a>
       </div>
     </div>
     <div class="schematic">
@@ -97,39 +106,39 @@
 <section id="services">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">What we build</div>
-      <h2>Five disciplines, one team.</h2>
-      <p>We don't hand you off between departments. The same crew scopes, builds, and ships your project end to end.</p>
+      <div class="eyebrow" data-i18n="servicesEyebrow">What we build</div>
+      <h2 data-i18n="servicesTitle">Five disciplines, one team.</h2>
+      <p data-i18n="servicesLead">We don't hand you off between departments. The same crew scopes, builds, and ships your project end to end.</p>
     </div>
     <div class="services-grid">
       <div class="service-card">
         <span class="service-code mono">SVC / DESKTOP</span>
-        <h3>Desktop Applications</h3>
-        <p>Native and cross-platform desktop software for Windows, macOS, and Linux — from internal tools to full commercial products.</p>
+        <h3 data-i18n="svcDesktopTitle">Desktop Applications</h3>
+        <p data-i18n="svcDesktopDesc">Native and cross-platform desktop software for Windows, macOS, and Linux — from internal tools to full commercial products.</p>
         <div class="service-tags"><span>Windows</span><span>macOS</span><span>Linux</span></div>
       </div>
       <div class="service-card">
         <span class="service-code mono">SVC / MOBILE</span>
-        <h3>Mobile Applications</h3>
-        <p>iOS and Android apps built for real usage — from first prototype through App Store and Play Store release.</p>
+        <h3 data-i18n="svcMobileTitle">Mobile Applications</h3>
+        <p data-i18n="svcMobileDesc">iOS and Android apps built for real usage — from first prototype through App Store and Play Store release.</p>
         <div class="service-tags"><span>iOS</span><span>Android</span><span>Cross-platform</span></div>
       </div>
       <div class="service-card">
         <span class="service-code mono">SVC / WEB</span>
-        <h3>Websites &amp; Web Apps</h3>
-        <p>Marketing sites, dashboards, and full web applications — fast, responsive, and built to be maintained, not just shipped.</p>
+        <h3 data-i18n="svcWebTitle">Websites &amp; Web Apps</h3>
+        <p data-i18n="svcWebDesc">Marketing sites, dashboards, and full web applications — fast, responsive, and built to be maintained, not just shipped.</p>
         <div class="service-tags"><span>Frontend</span><span>Backend</span><span>APIs</span></div>
       </div>
       <div class="service-card">
         <span class="service-code mono">SVC / SYSTEMS</span>
-        <h3>Management Systems</h3>
-        <p>Inventory, booking, HR, and custom operations software that replaces spreadsheets and manual processes with something built for your workflow.</p>
+        <h3 data-i18n="svcSystemsTitle">Management Systems</h3>
+        <p data-i18n="svcSystemsDesc">Inventory, booking, HR, and custom operations software that replaces spreadsheets and manual processes with something built for your workflow.</p>
         <div class="service-tags"><span>Dashboards</span><span>Automation</span><span>Reporting</span></div>
       </div>
       <div class="service-card">
         <span class="service-code mono">SVC / DATA</span>
-        <h3>Data &amp; Document Automation</h3>
-        <p>Turning scraped websites, JSON exports, and messy spreadsheets into clean Excel reports and PDFs — a problem we keep getting asked to solve.</p>
+        <h3 data-i18n="svcDataTitle">Data &amp; Document Automation</h3>
+        <p data-i18n="svcDataDesc">Turning scraped websites, JSON exports, and messy spreadsheets into clean Excel reports and PDFs — a problem we keep getting asked to solve.</p>
         <div class="service-tags"><span>Web scraping</span><span>Excel automation</span><span>PDF generation</span></div>
       </div>
     </div>
@@ -139,9 +148,9 @@
 <section id="systems">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Product line</div>
-      <h2>Systems we're building.</h2>
-      <p>Alongside custom client work, we're building a line of ready-to-customize business systems — live demos you can see and adapt instead of starting from a blank page.</p>
+      <div class="eyebrow" data-i18n="systemsEyebrow">Product line</div>
+      <h2 data-i18n="systemsTitle">Systems we're building.</h2>
+      <p data-i18n="systemsLead">Alongside custom client work, we're building a line of ready-to-customize business systems — live demos you can see and adapt instead of starting from a blank page.</p>
     </div>
     <div class="systems-grid" id="systemsGrid"></div>
   </div>
@@ -150,30 +159,30 @@
 <section id="process">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">How we work</div>
-      <h2>From brief to build, in four stages.</h2>
-      <p>Every project — freelance or direct — follows the same process, so you always know what's next.</p>
+      <div class="eyebrow" data-i18n="processEyebrow">How we work</div>
+      <h2 data-i18n="processTitle">From brief to build, in four stages.</h2>
+      <p data-i18n="processLead">Every project — freelance or direct — follows the same process, so you always know what's next.</p>
     </div>
     <div class="process-line">
       <div class="process-step">
         <div class="dot mono">1</div>
-        <h3>Scope</h3>
-        <p>We map your requirements, constraints, and timeline before writing a line of code.</p>
+        <h3 data-i18n="processStep1Title">Scope</h3>
+        <p data-i18n="processStep1Desc">We map your requirements, constraints, and timeline before writing a line of code.</p>
       </div>
       <div class="process-step">
         <div class="dot mono">2</div>
-        <h3>Design</h3>
-        <p>Architecture and interface decisions get made deliberately, and shown to you before build.</p>
+        <h3 data-i18n="processStep2Title">Design</h3>
+        <p data-i18n="processStep2Desc">Architecture and interface decisions get made deliberately, and shown to you before build.</p>
       </div>
       <div class="process-step">
         <div class="dot mono">3</div>
-        <h3>Build</h3>
-        <p>Development happens in short cycles, with working versions in your hands early and often.</p>
+        <h3 data-i18n="processStep3Title">Build</h3>
+        <p data-i18n="processStep3Desc">Development happens in short cycles, with working versions in your hands early and often.</p>
       </div>
       <div class="process-step">
         <div class="dot mono">4</div>
-        <h3>Ship &amp; support</h3>
-        <p>We deploy, hand over what you need to run it, and stay reachable after launch.</p>
+        <h3 data-i18n="processStep4Title">Ship &amp; support</h3>
+        <p data-i18n="processStep4Desc">We deploy, hand over what you need to run it, and stay reachable after launch.</p>
       </div>
     </div>
   </div>
@@ -182,9 +191,9 @@
 <section id="work">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Selected work</div>
-      <h2>Recent builds.</h2>
-      <p>A few of the projects we've shipped for clients and on freelance platforms.</p>
+      <div class="eyebrow" data-i18n="workEyebrow">Selected work</div>
+      <h2 data-i18n="workTitle">Recent builds.</h2>
+      <p data-i18n="workLead">A few of the projects we've shipped for clients and on freelance platforms.</p>
     </div>
     <div class="work-grid" id="workGrid"></div>
   </div>
@@ -193,9 +202,9 @@
 <section id="team">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">The crew</div>
-      <h2>Who's building this.</h2>
-      <p>A small team, each covering a different part of the stack.</p>
+      <div class="eyebrow" data-i18n="teamEyebrow">The crew</div>
+      <h2 data-i18n="teamTitle">Who's building this.</h2>
+      <p data-i18n="teamLead">A small team, each covering a different part of the stack.</p>
     </div>
     <div class="team-grid" id="teamGrid"></div>
   </div>
@@ -204,13 +213,13 @@
 <section id="contact">
   <div class="wrap">
     <div class="cta-band">
-      <h2>Have a project in mind?</h2>
-      <p>Tell us what you're building. We'll reply with a scoped estimate — usually within a day or two.</p>
+      <h2 data-i18n="contactTitle">Have a project in mind?</h2>
+      <p data-i18n="contactLead">Tell us what you're building. We'll reply with a scoped estimate — usually within a day or two.</p>
       <form class="cta-form" id="contactForm">
         <input type="email" placeholder="you@company.com" required aria-label="Your email">
-        <button type="submit" class="btn btn-primary">Send</button>
+        <button type="submit" class="btn btn-primary" data-i18n="contactSend">Send</button>
       </form>
-      <p class="cta-note" id="formNote">We'll never share your email. No spam, ever.</p>
+      <p class="cta-note" id="formNote" data-i18n="contactNote">We'll never share your email. No spam, ever.</p>
     </div>
   </div>
 </section>
@@ -218,19 +227,20 @@
 <footer>
   <div class="wrap">
     <div class="footer-grid">
-      <div class="logo"><span class="mark"><img src="assets/logo.png" alt="Elevate Software logo"></span>ELEVATE SOFTWARE</div>
+      <a href="/" class="logo"><span class="mark"><img src="assets/logo.png" alt="Elevate Software logo"></span>ELEVATE SOFTWARE</a>
       <div class="footer-links">
-        <a href="#services">Services</a>
-        <a href="#systems">Systems</a>
-        <a href="#process">Process</a>
-        <a href="#work">Work</a>
-        <a href="#team">Team</a>
-        <a href="#contact">Contact</a>
+        <a href="#services" data-i18n="navServices">Services</a>
+        <a href="#systems" data-i18n="navSystems">Systems</a>
+        <a href="#process" data-i18n="navProcess">Process</a>
+        <a href="#work" data-i18n="navWork">Work</a>
+        <a href="#team" data-i18n="navTeam">Team</a>
+        <a href="/get-license" data-i18n="navLicense">Get a License</a>
+        <a href="#contact" data-i18n="navContact">Contact</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Elevate Software. All rights reserved.</span>
-      <span>Built in-house, obviously.</span>
+      <span data-i18n="footerCopyright">© 2026 Elevate Software. All rights reserved.</span>
+      <span data-i18n="footerNote">Built in-house, obviously.</span>
     </div>
   </div>
 </footer>
