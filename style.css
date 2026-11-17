@@ -891,7 +891,7 @@
     .work-grid{ grid-template-columns: minmax(0,1fr); }
     .team-grid{ grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
     .cta-band{ padding: 40px 24px; }
-    .cta-form{ flex-direction:column; }
+    .cta-form{ flex-direction:column; flex-wrap:nowrap; align-items:stretch; width: 100%; max-width: 100%; }
     .modal{ padding: 28px 20px; max-height: 90vh; }
     .modal-close{ top: 12px; right: 12px; }
     .lightbox-overlay{ padding: 16px; }
@@ -925,7 +925,7 @@
 
 .license-grid{
   display:grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
   gap: 28px;
 }
 .license-card{
@@ -1027,7 +1027,7 @@
   padding: 12px 18px;
   font-size: 0.88rem;
 }
-.license-actions{ align-items:center; }
+.license-actions{ align-items:stretch; }
 .view-details-cta{
   opacity: 1;
   transform: none;
